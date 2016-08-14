@@ -8,3 +8,7 @@ The show page for each task will be further broken down into steps that make it 
 
 There will also be custom lists the user can build and come back to, like things to do when they're having an off day, a custom list of favorite things to do, and a custom list of rewards.
 # dataentrigue
+
+#LINKS TO UMLs
+  http://i.imgur.com/nSBrEcP.jpg
+  http://i.imgur.com/XLzUdwZ.jpg
