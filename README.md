@@ -12,3 +12,6 @@ There will also be custom lists the user can build and come back to, like things
 #LINKS TO UMLs
   http://i.imgur.com/nSBrEcP.jpg
   http://i.imgur.com/XLzUdwZ.jpg
+
+#LINK TO TRELLO BOARD
+https://trello.com/b/4u5xVcXe/final-project
