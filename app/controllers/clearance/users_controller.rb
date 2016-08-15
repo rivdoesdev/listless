@@ -10,7 +10,7 @@ class Clearance::UsersController < Clearance::BaseController
   end
 
   def index
-    render template: 'users/index.html.erb', locals: {
+    render locals: {
       users: User.all.order(:name)
     }
   end
@@ -26,7 +26,7 @@ class Clearance::UsersController < Clearance::BaseController
 
   def new
     if signed_in?
-      redirect_to "/users"
+      redirect_to root_path
     else
       @user = user_from_params
       render template: "users/new.html.erb"
@@ -46,12 +46,12 @@ class Clearance::UsersController < Clearance::BaseController
   private
   def redirect_signed_in_users
     if signed_in?
-      redirect_to root
+      redirect_to root_path
     end
   end
 
   def url_after_create
-    redirect_to root
+    redirect_to root_path
   end
 
   def user_from_params
