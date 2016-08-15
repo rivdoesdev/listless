@@ -1,7 +1,8 @@
 class DashboardController < ApplicationController
   def index
+    lists = List.all
     render locals: {
-      dashboard: dashboard
+      lists: lists
     }
   end
 end

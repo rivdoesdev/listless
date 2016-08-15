@@ -1,0 +1,21 @@
+<%= form_for :session, url: session_path do |form| %>
+
+  <div class="text-field">
+    <%= form.label :email %>
+    <%= form.text_field :email, type: 'email' %>
+  </div>
+
+  <div class="password-field">
+    <%= form.label :password %>
+    <%= form.password_field :password %>
+  </div>
+
+  <div class="submit-field">
+    <%= form.submit "Submit", class: "waves-effect waves-light btn sign-in" %>
+  </div>
+
+  <div class="other-links">
+
+    <%= link_to "Forgot Password", new_password_path, class: "waves-effect waves-light btn new-password" %>
+  </div>
+<% end %>

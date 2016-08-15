@@ -1,4 +1,6 @@
 class ListsController < ApplicationController
+  before_action :require_login
+
   def index
     lists = List.all
     render locals: {
