@@ -1,5 +1,7 @@
 class DashboardController < ApplicationController
   def index
-    puts "How are you feeling today?"
+    render locals: {
+      dashboard: dashboard
+    }
   end
 end
