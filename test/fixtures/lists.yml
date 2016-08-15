@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  difficulty: MyString
+  energy: MyString
+  due_date: 2016-08-15
+  reward: MyString
+  completed: false
+
+two:
+  title: MyString
+  difficulty: MyString
+  energy: MyString
+  due_date: 2016-08-15
+  reward: MyString
+  completed: false
