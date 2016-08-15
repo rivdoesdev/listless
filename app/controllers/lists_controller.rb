@@ -44,8 +44,8 @@ class ListsController < ApplicationController
 
   def update
     if List.exists?(params[:id])
-      list.update(list_params)
-      redirect_to list
+      List.update(list_params)
+      redirect_to list_path
     else
       render :edit
     end

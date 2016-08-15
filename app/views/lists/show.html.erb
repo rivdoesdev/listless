@@ -1,4 +1,4 @@
-<h2><%= list.name %></h2>
+<h2><%= list.title %></h2>
   <% list.tasks.each do |t| %>
     <p><%= link_to t.body, task_path(t) %>
   <% end %>
