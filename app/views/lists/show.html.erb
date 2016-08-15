@@ -1,6 +1,10 @@
 <h2><%= list.title %></h2>
   <% list.tasks.each do |t| %>
-    <p><%= link_to t.body, task_path(t) %>
+    <p><%= link_to t.title, task_path(t) %>
   <% end %>
 
+  <p><%= link_to "Add Task", class: "btn btn-default" %>
+
   <p><%= link_to "Edit", edit_list_path(list), class: "btn btn-default" %>
+     <%= link_to "Archive", list_path(list), class: "btn btn-default" %>
+     <!-- fix this button to archive -->

@@ -28,7 +28,7 @@ class ListsController < ApplicationController
     list = List.new(list_params)
     list.user = current_user
     if list.save
-      render json: list
+      redirect_to list
     else
       render :new, locals: {
         list: list
