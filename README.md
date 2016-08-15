@@ -7,7 +7,7 @@ The homepage of the app will ask "How are you feeling today?" and list three opt
 The show page for each task will be further broken down into steps that make it easier to conceptualize how to get the task done - these will be reorder-able for user preference. On the right will be a difficulty level, energy level, due date, reward option, and completed or not completed. At the bottom will be a link to Need Help Getting Started? with suggestions as to how to get started on a task. This may be a direct link to Google that looks for "How do I get started #{name.task}?"
 
 There will also be custom lists the user can build and come back to, like things to do when they're having an off day, a custom list of favorite things to do, and a custom list of rewards.
-# dataentrigue
+# listless
 
 #LINKS TO UMLs
   http://i.imgur.com/nSBrEcP.jpg

@@ -16,32 +16,32 @@ ActiveRecord::Schema.define(version: 20160815161410) do
   enable_extension "plpgsql"
 
   create_table "lists", force: :cascade do |t|
-    t.string   "title"
-    t.string   "difficulty"
-    t.string   "energy"
+    t.string   "title",                      null: false
+    t.string   "difficulty",                 null: false
+    t.string   "energy",                     null: false
     t.date     "due_date"
     t.string   "reward"
-    t.boolean  "completed"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean  "completed",  default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.integer  "user_id"
     t.index ["user_id"], name: "index_lists_on_user_id", using: :btree
   end
 
   create_table "tasks", force: :cascade do |t|
-    t.string   "title"
+    t.string   "title",                       null: false
     t.text     "description"
     t.integer  "position"
-    t.boolean  "completed"
+    t.boolean  "completed",   default: false
     t.integer  "list_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.index ["list_id"], name: "index_tasks_on_list_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "name"
-    t.string   "email"
+    t.string   "name",                           null: false
+    t.string   "email",                          null: false
     t.string   "password"
     t.string   "birthday"
     t.string   "phone_number"
