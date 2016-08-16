@@ -34,7 +34,7 @@ end
 
 private
 def permission_params
-  params.require(:permission).permit(:user_id, :list_id, :all_access)
+  params.require(:permission).permit(:user_id, :list_id, :all_access, :public)
 end
 
 def has_permission?(list)

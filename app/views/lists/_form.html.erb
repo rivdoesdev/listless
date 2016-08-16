@@ -7,26 +7,29 @@
     <% end %>
   <% end %>
 
-  <%= form_for(list) do |f| %>
-    <label for="title">Title:</label>
-    <%=f.text_area :title, placeholder: 'Title Your List', class: 'form-control' %>
+    <%= form_for(list) do |f| %>
+      <label for="title">Title:</label>
+      <%= f.text_area :title, placeholder: 'Title Your List', class: 'form-control' %>
 
-    <label for="difficulty">Level of Difficulty:</label>
-      <%=f.text_area :difficulty, placeholder: 'How much effort are you anticipating giving this list?', class: 'form-control' %>
+      <label for="difficulty">Level of Difficulty:</label>
+      <%= f.text_area :difficulty, placeholder: 'How much effort are you anticipating giving this list?', class: 'form-control' %>
 
-    <label for="energy">Energy Level:</label>
-    <%=f.text_area :energy, placeholder: 'How much energy is this list going to use?', class: 'form-control' %>
+      <label for="energy">Energy Level:</label>
+      <%= f.text_area :energy, placeholder: 'How much energy is this list going to use?', class: 'form-control' %>
 
-    <label for="due_date">Due Date</label>
-    <%=f.text_area :due_date, placeholder: '01/01/2020', class: 'form-control' %>
+      <label for="due_date">Due Date</label>
+      <%= f.text_area :due_date, placeholder: '01/01/2020', class: 'form-control' %>
 
-    <label for="reward">Reward</label>
-    <%=f.text_area :reward, placeholder: 'Treat yoself', class: 'form-control' %>
+      <label for="reward">Reward</label>
+      <%= f.text_area :reward, placeholder: 'Treat yoself', class: 'form-control' %>
 
-    <label for="completed">Done?</label>
-    <%=f.check_box :completed, class: 'form-control' %>
+      <div><%= f.check_box(:completed, {}, true, false) %>
+      <label for="list_completed">Complete? </label></div>
 
-    <p><div class ='actions text-center'>
+      <div><%= f.check_box(:private, {}, true, false) %>
+      <label for="list_private">Make This List Private? </label></div>
+
+      <p><div class ='actions text-center'>
       <%= f.submit class: 'btn btn-primary' %>
     </div>
   <% end %>
