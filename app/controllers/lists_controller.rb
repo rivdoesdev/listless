@@ -9,12 +9,18 @@ class ListsController < ApplicationController
   end
 
   def show
-    if List.exists?(params[:id])
-    render locals: {
-      list: List.find(params[:id])
-    }
-    else
-      render html: { message: "List not found"}, status: 404
+    list = List.find(params[:id])
+    if list
+      if has_permission?(list)
+        render locals: {
+        list: list, permission: Permission.new
+        }
+      else
+        flash[:alert] = "You do not have permission to view this page."
+        redirect_to root_path
+      end
+      else
+        render html: { message: "List not found" }, status: 404
     end
   end
 
@@ -52,12 +58,17 @@ class ListsController < ApplicationController
   end
 
   def destroy
-    if List.exists?(params[:id])
-      List.destroy(params[:id])
+    list = List.find(params[:id])
+    if list
+      if has_permission?(list)
+      list.destroy
       flash[:notice] = "List removed"
       redirect_to lists
+      else
+        flash[:alert] = "You do not have permission to delete this list."
+      end
     else
-      flash[:alert] = "List was not destroyed due to errors."
+      flash[:alert] = list.errors
     end
   end
 end

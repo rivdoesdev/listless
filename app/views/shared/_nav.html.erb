@@ -1,34 +1,36 @@
 <header class="main-header">
   <nav>
     <div class="row">
-      <div class="col s3">
-        <p class="header-title"><h5><%= link_to "listless", root_path %></h5></p>
-      </div>
-
-        <div class="col s4">
-          <%= link_to lists_path do %>
-          <i class="material-icons">list</i>
-          <% end %>
+      <div class="col s12">
+        <div class="col s3 m3">
+          <p class="header-title"><h5><%= link_to "listless", root_path %></h5></p>
         </div>
 
-        <div class="sign-in-out-up col s5">
-          <%= link_to users_path do %>
-          <i class="material-icons">perm_identity</i>
-          <% end %>
-        </div>
+          <div class="col s4 m2">
+            <%= link_to lists_path do %>
+            <i class="material-icons">list</i>
+            <% end %>
+          </div>
 
-      <div class="col s0 m5">
-        <div class="nav-wrapper">
-          <form>
-            <div class="input-field col s4">
-              <div class="search-box">
+          <div class="sign-in-out-up col s4 m2">
+            <%= link_to users_path do %>
+            <i class="material-icons">perm_identity</i>
+            <% end %>
+          </div>
+
+        <div class="col s0 m5">
+          <div class="nav-wrapper">
+            <form>
+              <div class="input-field col s0 m4">
+                <div class="search-box">
 
 
-                  <input id="search" type="search" class="search full-width" id="searchbar" name="query" type="text" remote=true>
+                    <input id="search" type="search" class="search full-width" id="searchbar" name="query" type="text" remote=true>
 
 
-                <label for="search"><i class="material-icons">search</i></label>
-                <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+                  <label for="search"><i class="material-icons">search</i></label>
+                  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+                </div>
               </div>
             </div>
           </form>

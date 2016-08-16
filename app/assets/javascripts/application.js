@@ -13,4 +13,13 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+
+//= require materialize-sprockets
 //= require_tree .
+
+var boxy = function() {
+  $('select').material_select();
+};
+
+$(document).ready(boxy);
+$(document).on("turbolinks:load", boxy)
