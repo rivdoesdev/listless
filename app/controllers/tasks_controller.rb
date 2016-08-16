@@ -20,6 +20,7 @@ class TasksController < ApplicationController
 
   def new
     render locals: {
+      list_id: params[:list_id],
       task: Task.new
     }
   end
@@ -27,7 +28,7 @@ class TasksController < ApplicationController
   def create
     task = Task.new(task_params)
     if task.save
-      render json: task
+      redirect_to "/lists/#{task.list_id}"
     else
       render :new, locals: {
         task: task
@@ -37,14 +38,17 @@ class TasksController < ApplicationController
 
   def edit
     render locals: {
+      list_id: params[:list_id],
       task: Task.find(params[:id])
     }
   end
 
   def update
-    if Task.exists?(params[:id])
+    task = Task.find(params[:id])
+    if task
       task.update(task_params)
-      redirect_to task
+      redirect_to "/lists/#{task.list_id}"
+      flash[:alert] = "Updated"
     else
       render :edit
     end
@@ -63,5 +67,5 @@ end
 
 private
 def task_params
-  params.require(:task).permit(:title, :completed, :list_id)
+  params.require(:task).permit(:title, :description, :position, :completed, :list_id)
 end

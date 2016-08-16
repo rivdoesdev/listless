@@ -64,5 +64,5 @@ end
 
 private
 def list_params
-  params.require(:list).permit(:title, :difficulty, :energy, :completed, :user_id)
+  params.require(:list).permit(:title, :difficulty, :energy, :due_date, :reward, :completed, :user_id)
 end
