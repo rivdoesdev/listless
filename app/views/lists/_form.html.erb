@@ -1,4 +1,4 @@
-<div class='form'>
+<div class='list-form'>
 <h2><%= form_title %></h2>
 
 <% if list.errors.any? %>
@@ -8,25 +8,19 @@
   <% end %>
 
     <%= form_for(list) do |f| %>
+
+    <span class="textarea1"></span>
       <label for="title">Title:</label>
       <%= f.text_area :title, placeholder: 'Title Your List', class: 'form-control' %>
 
       <label for="difficulty">Level of Difficulty:</label>
-      <form action="#">
-        <p class="range-field">
-          <input type="range" id="test5" min="0" max="5" />
-        </p>
-      </form>
+      <%= f.text_area :difficulty, placeholder: 'How much effort are you anticipating giving this list?', class: 'form-control' %>
 
       <label for="energy">Energy Level:</label>
-      <form action="#">
-        <p class="range-field">
-          <input type="range" id="test5" min="0" max="5" />
-        </p>
-      </form>
+      <%= f.text_area :energy, placeholder: 'How much energy is this list going to use?', class: 'form-control' %>
 
       <label for="due_date">Due Date</label>
-      <%= f.date_field :due_date, input: 'date', class: 'datepicker' %>
+      <%= f.date_field :due_date, placeholder: '01/01/2020', class: 'form-control' %>
 
       <label for="reward">Reward</label>
       <%= f.text_area :reward, placeholder: 'Treat yoself', class: 'form-control' %>
@@ -34,11 +28,26 @@
       <div><%= f.check_box(:completed, {}, true, false) %>
       <label for="list_completed">Complete? </label></div>
 
-      <div><%= f.check_box(:private, {}, true, false) %>
-      <label for="list_private">Make This List Private? </label></div>
+      <div><%= f.check_box(:public, {}, true, false) %>
+      <label for="list_public">Make This List Public? </label></div>
 
       <p><div class ='actions text-center'>
       <%= f.submit class: 'btn btn-primary' %>
     </div>
   <% end %>
 </div>
+
+
+<label for="difficulty">Difficulty Level:</label>
+<form action="#">
+  <p class="range-field">
+    <input type="range" id="test5" min="0" max="5" />
+  </p>
+</form>
+
+<label for="energy">Energy Level:</label>
+<form action="#">
+  <p class="range-field">
+    <input type="range" id="test5" min="0" max="5" />
+  </p>
+</form>
