@@ -26,7 +26,7 @@
     <div class='perm-form'>
     <%= form_for(permission) do |f| %>
       <div class='access-name'><label for="user_id">Give Someone Access to Your List: </label>
-      <%= f.select :user_id, options_from_collection_for_select(User.all, :id, :name) %>
+      <%= f.select :user_id, options_from_collection_for_select(no_permission_users(list), :id, :name) %>
       </div>
 
       <div><%= f.check_box(:all_access, {}, true, false) %>

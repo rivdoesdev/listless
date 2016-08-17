@@ -3,6 +3,7 @@ class List < ApplicationRecord
   has_many :tasks
   has_many :permissions
   has_many :allowed_users, through: :permissions, source: :user
+  has_many :users_with_access, through: :permissions, source: :user
 
   validates :title, length: { minimum: 2, maximum: 200 }
   validates :difficulty, presence: true
