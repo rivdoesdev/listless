@@ -1,5 +1,10 @@
 <p>Everyone Who Can See Your Lists: </p>
     <% permissions.each do |perm| %>
-      <p><%= perm.user.name.capitalize %>
+      <p><%= perm.user.name.capitalize %> -
+        <% if perm.all_access? %>
+          All Access
+        <% else %>
+          <%= perm.list.title %>
+        <% end %>
          <%= link_to "Remove Access", permission_path(perm), method: :delete %></p>
     <% end %>
