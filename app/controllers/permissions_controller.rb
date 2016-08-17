@@ -41,5 +41,5 @@ def permission_params
 end
 
 def has_permission?(list)
-  list.user_id == current_user.id || current_user.admin?
+  list.user_id == current_user.id || list.allowed_users.include?(current_user) || list.user.users_with_access.include?(current_user)
 end

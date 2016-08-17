@@ -1,7 +1,9 @@
 <% lists.each do |list| %>
   <ul>
+    <% if has_permission?(list) %>
     <li> <%= link_to list.title, list %> </li>
   </ul>
+<% end %>
 <% end %>
 
 <%= link_to "New", new_list_path, class: "btn btn-primary" %>
