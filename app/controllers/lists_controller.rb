@@ -77,3 +77,7 @@ private
 def list_params
   params.require(:list).permit(:title, :difficulty, :energy, :due_date, :reward, :completed, :user_id)
 end
+
+def has_permission?(list)
+  list.user_id == current_user.id || current_user.admin?
+end

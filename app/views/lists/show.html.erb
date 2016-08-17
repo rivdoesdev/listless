@@ -1,35 +1,63 @@
-<h2><%= list.title %></h2>
-  <p><% list.tasks.each do |task| %>
-    <%= link_to task.title, task %></p>
-  <% end %>
-
-  <%= form_for(permission) do |f| %>
-    <div><label for="user_id">Give Someone Access to Your List: </label>
-    <%= f.select :user_id, options_from_collection_for_select(User.all, :id, :name) %></div>
-
-    <div><%= f.check_box(:all_access, {}, true, false) %>
-    <label for="permission_all_access">All Access? </label></div>
-
-    <%= f.hidden_field :list_id, value: list.id %>
-
-    <div>
-      <%= f.submit class: "waves-effect waves-light btn" %>
+<div class="list-show">
+  <div class="row">
+    <div class="list-col col s12 m6">
+      <div class='list-tasks'><h2><%= list.title %></h2>
+        <ol>
+          <% list.tasks.each do |task| %>
+          <li>
+            <%= link_to task.title, task %>
+          </li>
+          <% end %>
+        </ol>
+        <%= link_to "Add Task", new_task_path(list_id: list.id), class: "btn btn-default" %>
+      </div>
     </div>
-  <% end %>
 
-  <p>Can See This List:  </p>
-    <% list.permissions.uniq.each do |perm| %>
-      <p><%= perm.user.name.capitalize %> -
-        <% if perm.all_access? %>
-        <%= puts "All Access" %>
-        <% else %>
-        <%= puts "#{list.title}" %>
-        <% end %>
-         <%= link_to "Remove Access", permission_path(perm), method: :delete %></p>
+    <div class="list-col col s12 m6">
+      <ul>
+        <li>Difficulty level: <%= list.difficulty %></li>
+        <li>Energy level: <%= list.energy %></li>
+        <li>Due date: <%= list.due_date %></li>
+        <li>Reward: <%= list.reward %></li>
+        <li>Completed? <%= list.completed %></li>
+      </ul>
+    </div>
+
+    <div class='perm-form'>
+    <%= form_for(permission) do |f| %>
+      <div class='access-name'><label for="user_id">Give Someone Access to Your List: </label>
+      <%= f.select :user_id, options_from_collection_for_select(User.all, :id, :name) %>
+      </div>
+
+      <div><%= f.check_box(:all_access, {}, true, false) %>
+      <label for="permission_all_access">All Access? </label>
+      </div>
+
+      <%= f.hidden_field :list_id, value: list.id %>
+
+      <div>
+        <%= f.submit class: "waves-effect waves-light btn" %>
+      </div>
     <% end %>
 
-  <%= link_to "Add", new_permission_path, class: "btn btn-primary" %>
-  <%= link_to "Add Task", new_task_path(list_id: list.id), class: "btn btn-default" %>
-  <%= link_to "Edit", edit_list_path(list), class: "btn btn-default" %>
-  <%= link_to "Archive", list_path(list), class: "btn btn-default" %>
-     <!-- fix this button to archive -->
+    <p>Can See This List: </p>
+      <% list.permissions.uniq.each do |perm| %>
+        <p class='perm-users'><%= perm.user.name.capitalize %> -
+          <% if perm.all_access? %>
+            <%= puts "All Access" %>
+          <% else %>
+            <%= puts "#{list.title}" %>
+          <% end %>
+        <span class='red-x'><%= link_to "X", permission_path(perm), method: :delete %></span></p>
+      <% end %>
+    </div>
+
+      <%= link_to "Add", new_permission_path, class: "btn btn-primary" %>
+      <%= link_to "Edit", edit_list_path(list), class: "btn btn-default" %>
+      <%= link_to "Archive", list_path(list), class: "btn btn-default" %>
+       <!-- fix this button to archive -->
+    <div class="col s12">
+      <%= link_to "Need help getting started?", "http://www.google.com/" %>
+    </div>
+  </div>
+</div>

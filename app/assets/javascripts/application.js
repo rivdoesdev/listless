@@ -23,23 +23,3 @@ var boxy = function() {
 
 $(document).ready(boxy);
 $(document).on("turbolinks:load", boxy)
-
-var range = document.getElementById('range');
-
-noUiSlider.create(range, {
-	start: [ 1, 5 ], // Handle start position
-	step: 1, // Slider moves in increments of '10'
-	margin: 1, // Handles must be more than '20' apart
-	connect: true, // Display a colored bar between the handles
-	direction: 'rtl', // Put '0' at the bottom of the slider
-	orientation: 'horizontal', // Orient the slider vertically
-	behaviour: 'tap-drag', // Move handle on tap, bar is draggable
-	range: { // Slider can select '0' to '100'
-		'min': 0,
-		'max': 5
-	},
-	pips: { // Show a scale with the slider
-		mode: 'steps',
-		density: 2
-	}
-});
