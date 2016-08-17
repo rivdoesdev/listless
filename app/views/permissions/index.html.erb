@@ -1,5 +1,14 @@
 <p>Everyone Who Can See Your Lists: </p>
-  <b>All Access:</b>
+  <div class='all-perm'><b>All Access:</b>
+    <ul class='collection'>
+      <% current_user.allaccesses.each do |access| %>
+      <li class='collection-item perm-users'>
+        <%= access.assignee.name.capitalize %>
+        <span class='red-x'><%= link_to "X", allaccess_path(access), method: :delete %></span>
+      </li>
+      <% end %>
+    </ul>
+  </div>
 
   <div class='list-perm'><b>Access To Individual Lists: </b>
     <% permissions_grouped_by_list.each do |list, perms| %>
@@ -16,6 +25,13 @@
   </div>
 
 
-
-
 <p>Give All Access to Your Account:<p>
+  <%= form_for(allaccess) do |f| %>
+    <div class='assignee_id'><label for="user_id">User: </label>
+    <%= f.select :user_id, options_from_collection_for_select(no_access_users(current_user), :id, :name) %>
+    </div>
+
+    <div>
+      <%= f.submit class: "waves-effect waves-light btn" %>
+    </div>
+  <% end %>

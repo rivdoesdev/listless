@@ -6,7 +6,9 @@ class User < ApplicationRecord
 
   has_many :allaccesses
   #User giving access
+  has_many :users_with_access, through: :allaccesses, source: :assignee
   #User has been given access
+  has_many :assigned_users, through: :allaccesses, source: :user
 
   validates :name, presence: true
   validates :email, presence: true

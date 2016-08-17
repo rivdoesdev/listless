@@ -2,7 +2,8 @@ class PermissionsController < ApplicationController
   def index
     permissions = Permission.for_user(current_user)
     render locals: {
-      permissions_grouped_by_list: permissions.group_by { |permission| permission.list }
+      permissions_grouped_by_list: permissions.group_by { |permission| permission.list },
+      allaccess: Allaccess.new
     }
   end
 
