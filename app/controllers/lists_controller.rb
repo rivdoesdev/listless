@@ -4,7 +4,7 @@ class ListsController < ApplicationController
   def index
     lists = List.all
     render locals: {
-      lists: lists
+      lists: lists,
     }
   end
 
@@ -76,8 +76,4 @@ end
 private
 def list_params
   params.require(:list).permit(:title, :difficulty, :energy, :due_date, :reward, :completed, :user_id)
-end
-
-def has_permission?(list)
-  list.user_id == current_user.id || list.allowed_users.include?(current_user) || list.user.users_with_access.include?(current_user)
 end

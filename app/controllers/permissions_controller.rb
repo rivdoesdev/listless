@@ -39,7 +39,3 @@ private
 def permission_params
   params.require(:permission).permit(:user_id, :list_id, :public)
 end
-
-def has_permission?(list)
-  list.user_id == current_user.id || list.allowed_users.include?(current_user) || list.user.users_with_access.include?(current_user)
-end

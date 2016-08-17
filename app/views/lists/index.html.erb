@@ -1,10 +1,24 @@
+<h2>Your Lists: </h2>
 <% lists.each do |list| %>
-  <ul>
-    <% if has_permission?(list) %>
-    <li> <%= link_to list.title, list %> </li>
+  <% if list.user == current_user %>
+    <ul>
+      <li> <%= link_to list.title, list %> </li>
+    </ul>
+  <% end %>
+<% end %>
+
+<h2>You Have Access To: </h2>
+  <ul class='collection'>
+
+  <% lists.each do |list| %>
+  <% if has_permission?(list) %>
+    <li class='collection-item perm-users'>
+      <%= link_to list.title, list %> (<%= list.user.name.capitalize %>)
+    </li>
+  <% end %>
+  <% end %>
   </ul>
-<% end %>
-<% end %>
+
 
 <%= link_to "New", new_list_path, class: "btn btn-primary" %>
 <p><%= link_to "Permissions", permissions_path %></p>
