@@ -5,9 +5,8 @@ class AllaccessesController < ApplicationController
     if allaccess.save
       redirect_to :back
     else
-      render :new, locals: {
-        allaccess: allaccess
-      }
+      flash[:alert] = 'Permission was not given due to errors.'
+      redirect_to :back
     end
   end
 

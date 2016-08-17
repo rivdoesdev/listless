@@ -1,10 +1,17 @@
 class ListsController < ApplicationController
-  before_action :require_login
+  before_action :require_login, except: [:public_index, :public_show]
 
   def index
     lists = List.all
     render locals: {
       lists: lists,
+    }
+  end
+
+  def public_index
+    lists = List.where(public: true)
+    render locals: {
+      lists: lists
     }
   end
 
@@ -19,6 +26,17 @@ class ListsController < ApplicationController
         flash[:alert] = "You do not have permission to view this page."
         redirect_to root_path
       end
+      else
+        render html: { message: "List not found" }, status: 404
+    end
+  end
+
+  def public_show
+    list = List.find(params[:id])
+    if list.public?
+        render locals: {
+        list: list
+        }
       else
         render html: { message: "List not found" }, status: 404
     end
@@ -75,5 +93,5 @@ end
 
 private
 def list_params
-  params.require(:list).permit(:title, :difficulty, :energy, :due_date, :reward, :completed, :user_id)
+  params.require(:list).permit(:title, :difficulty, :energy, :due_date, :reward, :public, :completed, :user_id)
 end

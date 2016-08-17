@@ -28,7 +28,7 @@
 <p>Give All Access to Your Account:<p>
   <%= form_for(allaccess) do |f| %>
     <div class='assignee_id'><label for="user_id">User: </label>
-    <%= f.select :user_id, options_from_collection_for_select(no_access_users(current_user), :id, :name) %>
+    <%= f.select :assignee_id, options_from_collection_for_select(no_access_users(current_user), :id, :name) %>
     </div>
 
     <div>

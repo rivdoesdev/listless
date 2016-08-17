@@ -1,0 +1,7 @@
+<h2>Public Lists</h2>
+<% lists.each do |list| %>
+  <li class='collection-item perm-users'>
+    <%= link_to list.title, "public/#{list.id}" %>
+  </li>
+<% end %>
+</ul>
