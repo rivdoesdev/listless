@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :allaccesses
   resources :permissions
   resources :lists
   resources :tasks

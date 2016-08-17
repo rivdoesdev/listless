@@ -1,8 +1,8 @@
 class PermissionsController < ApplicationController
   def index
-    permissions = Permission.all
+    permissions = Permission.for_user(current_user)
     render locals: {
-      permissions: permissions
+      permissions_grouped_by_list: permissions.group_by { |permission| permission.list }
     }
   end
 
@@ -36,7 +36,7 @@ end
 
 private
 def permission_params
-  params.require(:permission).permit(:user_id, :list_id, :all_access, :public)
+  params.require(:permission).permit(:user_id, :list_id, :public)
 end
 
 def has_permission?(list)

@@ -1,4 +1,4 @@
-``# This file is auto-generated from the current state of the database. Instead
+# This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
@@ -10,22 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160816212008) do
+ActiveRecord::Schema.define(version: 20160817162050) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "allaccesses", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "assignee_id", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["user_id"], name: "index_allaccesses_on_user_id", using: :btree
+  end
+
   create_table "lists", force: :cascade do |t|
     t.string   "title",                      null: false
-    t.string   "difficulty",                 null: false
-    t.string   "energy",                     null: false
+    t.integer  "difficulty",                 null: false
+    t.integer  "energy",                     null: false
     t.date     "due_date"
     t.string   "reward"
     t.boolean  "completed",  default: false
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.integer  "user_id"
-    t.boolean  "public"
+    t.boolean  "public",     default: false
     t.index ["user_id"], name: "index_lists_on_user_id", using: :btree
   end
 
@@ -34,7 +42,6 @@ ActiveRecord::Schema.define(version: 20160816212008) do
     t.integer  "list_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean  "all_access"
     t.index ["list_id"], name: "index_permissions_on_list_id", using: :btree
     t.index ["user_id"], name: "index_permissions_on_user_id", using: :btree
   end
@@ -66,6 +73,7 @@ ActiveRecord::Schema.define(version: 20160816212008) do
     t.index ["remember_token"], name: "index_users_on_remember_token", using: :btree
   end
 
+  add_foreign_key "allaccesses", "users"
   add_foreign_key "lists", "users"
   add_foreign_key "permissions", "lists"
   add_foreign_key "permissions", "users"
