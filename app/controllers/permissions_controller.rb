@@ -11,11 +11,13 @@ class PermissionsController < ApplicationController
   end
 
   def create
-  permission = Permission.new(permission_params)
+    permission = Permission.new(permission_params)
     if permission.save
-      redirect_to "/lists/#{permission.list_id}"
+      flash[:notice] = "Permission created!"
+      redirect_to permission.list
     else
-      flash[:alert] = permission.errors.full_messages[0]
+      flash[:alert] = permission.errors.full_messages
+      redirect_to permission.list
     end
   end
 
