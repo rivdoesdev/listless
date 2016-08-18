@@ -1,0 +1,10 @@
+<h4>Archived Lists: </h4>
+  <% lists.each do |list| %>
+  <% if list.archived? %>
+    <% if list.user == current_user %>
+      <ul class='collection'>
+        <li> <%= link_to list.title, list %> </li>
+      </ul>
+    <% end %>
+  <% end %>
+<% end %>

@@ -15,6 +15,13 @@ class ListsController < ApplicationController
     }
   end
 
+  def archived_index
+    lists = List.where(archived: true)
+    render locals: {
+      lists: lists
+    }
+  end
+
   def show
     list = List.find(params[:id])
     if list
@@ -80,16 +87,25 @@ class ListsController < ApplicationController
     if list
       if has_permission?(list)
       list.destroy
-      flash[:notice] = "List removed"
+      flash[:notice] = "List archived!"
       redirect_to lists
       else
-        flash[:alert] = "You do not have permission to delete this list."
+        flash[:alert] = "You do not have permission to archive this list."
       end
     else
       flash[:alert] = list.errors
     end
   end
+
+  def flop
+      list = List.find(params[:id])
+      list.archived = !list.archived || !list.archived = list.archived
+      list.save
+
+      redirect_to list_path(list)
+  end
 end
+
 
 private
 def list_params
