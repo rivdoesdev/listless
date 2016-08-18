@@ -1,13 +1,13 @@
-<h2>Your Lists: </h2>
+<h4>Your Lists: </h4>
 <% lists.each do |list| %>
   <% if list.user == current_user %>
-    <ul>
+    <ul class='collection'>
       <li> <%= link_to list.title, list %> </li>
     </ul>
   <% end %>
 <% end %>
 
-<h2>You Have Access To: </h2>
+<h4>You Have Access To: </h4>
   <ul class='collection'>
 
   <% lists.each do |list| %>
