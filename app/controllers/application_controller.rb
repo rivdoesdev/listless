@@ -6,4 +6,9 @@ class ApplicationController < ActionController::Base
     list.user == current_user || list.allowed_users.include?(current_user) || list.user.users_with_access.include?(current_user)
   end
   helper_method :has_permission?
+
+  def you_have_access_to(list)
+    list.allowed_users.include?(current_user) || list.user.users_with_access.include?(current_user)
+  end
+  helper_method :you_have_access_to
 end

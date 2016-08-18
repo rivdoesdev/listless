@@ -11,10 +11,12 @@
   <ul class='collection'>
 
   <% lists.each do |list| %>
-  <% if has_permission?(list) %>
+  <% if you_have_access_to(list) == 0 %>
     <li class='collection-item perm-users'>
       <%= link_to list.title, list %> (<%= list.user.name.capitalize %>)
     </li>
+    <% else %>
+    You do not have access to any other users' lists.
   <% end %>
   <% end %>
   </ul>
