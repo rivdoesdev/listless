@@ -13,11 +13,11 @@
       <label for="title">Title:</label>
       <%= f.text_area :title, placeholder: 'Title Your List', class: 'form-control' %>
 
-      <label for="difficulty">Level of Difficulty:</label>
-      <%= f.text_area :difficulty, placeholder: 'How much effort are you anticipating giving this list?', class: 'form-control' %>
+      <label for="energy">Difficulty Level:</label>
+      <%= f.range_field(:difficulty, in: 1..5) %>
 
       <label for="energy">Energy Level:</label>
-      <%= f.text_area :energy, placeholder: 'How much energy is this list going to use?', class: 'form-control' %>
+      <%= f.range_field(:energy, in: 1..5) %>
 
       <label for="due_date">Due Date</label>
       <%= f.date_field :due_date, placeholder: '01/01/2020', class: 'form-control' %>
@@ -36,18 +36,3 @@
     </div>
   <% end %>
 </div>
-
-
-<label for="difficulty">Difficulty Level:</label>
-<form action="#">
-  <p class="range-field">
-    <input type="range" id="test5" min="0" max="5" />
-  </p>
-</form>
-
-<label for="energy">Energy Level:</label>
-<form action="#">
-  <p class="range-field">
-    <input type="range" id="test5" min="0" max="5" />
-  </p>
-</form>
