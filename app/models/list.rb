@@ -13,4 +13,8 @@ class List < ApplicationRecord
   def users_without_permission
     User.all - self.allowed_users
   end
+
+  def self.search(query)
+    where("title ~* '.*#{query}.*'")
+  end
 end

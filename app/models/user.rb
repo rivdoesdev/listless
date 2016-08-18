@@ -12,4 +12,8 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :email, presence: true
+
+  def self.search(query)
+    where("name ~* '.*#{query}.*'")
+  end
 end

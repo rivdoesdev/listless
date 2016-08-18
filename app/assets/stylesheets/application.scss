@@ -28,6 +28,7 @@
 }
 
 .main-header {
+  width: 100%;
   header-title {
    margin-top: 10px;
   }
@@ -36,11 +37,11 @@
   }
   .search-box{
     margin: 20px;
-    #search {
+    #searchbar {
       max-height: 20px;
       border-radius: 5px;
       padding-left: 2rem;
-      width: 220px;
+      min-width: 150px;
     }
     .material-icons {
       margin-left: 15px;

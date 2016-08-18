@@ -14,6 +14,6 @@ Rails.application.routes.draw do
   resources :tasks
   resources :users, controller: "clearance/users"
 
-
+  get :search, controller: 'search', as: 'search'
   root 'dashboard#index', as: 'root'
 end

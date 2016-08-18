@@ -10,9 +10,13 @@ class Clearance::UsersController < Clearance::BaseController
   end
 
   def index
-    render locals: {
-      users: User.all.order(:name)
-    }
+    if params[:search]
+      search_params
+    else
+      render locals: {
+        users: User.all.order(:name)
+      }
+    end
   end
 
   def show

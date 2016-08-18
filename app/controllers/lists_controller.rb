@@ -2,10 +2,14 @@ class ListsController < ApplicationController
   before_action :require_login, except: [:public_index, :public_show]
 
   def index
-    lists = List.all
-    render locals: {
-      lists: lists,
-    }
+    if params[:search]
+      search_params
+    else
+      lists = List.all
+      render locals: {
+        lists: lists,
+      }
+    end
   end
 
   def public_index

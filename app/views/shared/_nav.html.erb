@@ -5,31 +5,29 @@
         <div class="col s3 m3">
           <p class="header-title"><h5><%= link_to "listless", root_path %></h5></p>
         </div>
-
-          <div class="col s4 m2">
-            <%= link_to lists_path do %>
-            <i class="material-icons">list</i>
-            <% end %>
-          </div>
-
-          <div class="sign-in-out-up col s4 m2">
-            <%= link_to current_user do %>
-            <i class="material-icons">perm_identity</i>
-            <% end %>
-          </div>
-
-        <div class="hide-on-small-only">
+        <div class="col s4 m2">
+          <%= link_to lists_path do %>
+          <i class="material-icons">list</i>
+          <% end %>
+        </div>
+        <div class="sign-in-out-up col s4 m2">
+          <%= link_to current_user do %>
+          <i class="material-icons">perm_identity</i>
+          <% end %>
+        </div>
+        <div class="col m5 hide-on-small-only">
           <div class="nav-wrapper">
-            <form>
-              <div class="input-field col s0 m4">
-                <div class="search-box">
-                    <input id="search" type="search" class="search full-width" id="searchbar" name="query" type="text" remote=true>
-                  <label for="search"><i class="material-icons">search</i></label>
-                  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-                </div>
+            <div class="input-field">
+              <div class="search-box">
+                <%= form_tag(:search, method: :get) do %>
+                  <%= search_field_tag :query, nil, class: "search full-width", id: "searchbar" %>
+                  <%= label_tag :query do %>
+                    <i class="material-icons">search</i>
+                  <% end %>
+                <% end %>
               </div>
             </div>
-          </form>
+          </div>
         </div>
       </div>
     </div>
