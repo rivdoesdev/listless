@@ -19,6 +19,11 @@
 
 var boxy = function() {
   $('select').material_select();
+
+  $('.datepicker').pickadate({
+      selectMonths: true, 
+      selectYears: 100
+  });
 };
 
 $(document).ready(boxy);
