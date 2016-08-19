@@ -15,10 +15,6 @@
  */
 @import "materialize";
 
-.dash-ask {
-  text-align: center;
-}
-
 .perm-users{
   .red-x {
     a:link {
@@ -67,3 +63,19 @@
   .list-foot {
     text-align: center;
   }
+
+.dashboard {
+  .dash-ask {
+    text-align: center;
+  }
+  .dash-background {
+    position: fixed;
+    z-index: -999;
+    top: -20px;
+    bottom: -20px;
+    background-size: auto;
+    height: 100vh;
+    width: 100%;
+  }
+
+}

@@ -7,10 +7,11 @@
       <ul class='collection'>
         <li> <%= link_to list.title, list %> </li>
       </ul>
+      <% else %>
+        <p>You don't have any lists ranked 3/5 :(</p>
     <% end %>
   <% end %>
 <% end %>
-<% else %>
-  <p>You don't have any lists ranked 3/5 :(</p>
+
 
 <%= link_to "All Lists", lists_path, class: "btn btn-primary" %>

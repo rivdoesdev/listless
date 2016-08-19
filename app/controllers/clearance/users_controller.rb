@@ -48,14 +48,14 @@ class Clearance::UsersController < Clearance::BaseController
   end
 
   def edit
-    render locals: {
-      user: User.find(params[:id])
-    }
+    @user = user_from_params
+    render template: "users/edit.html.erb"
   end
 
   def update
-    if User.exists?(params[:id])
-      User.update(list_params)
+    @user = user_from_params
+    if @user.exists?(params[:id])
+      @user.update(user_from_params)
       redirect_to user_path
     else
       render :edit

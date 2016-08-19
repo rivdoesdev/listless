@@ -7,6 +7,11 @@
     <div class="row">
       <div class="list-col col s12 m6">
         <div class='list-tasks'><h2><%= list.title %></h2>
+          <% if list.completed? %>
+          <p> Finished! </p>
+          <% else %>
+          <p> In Progress </p>
+          <% end %>
           <ol>
             <% list.tasks.each do |task| %>
             <li>
@@ -16,10 +21,6 @@
           </ol>
           <%= link_to "Add Task", new_task_path(list_id: list.id), class: "btn btn-default" %>
         </div>
-        <%= form_for(list) do |f| %>
-        <%= f.check_box :completed, class: 'form-control' %>
-        <label for="list_completed">List Completed?</label>
-        <% end %>
       </div>
 
 

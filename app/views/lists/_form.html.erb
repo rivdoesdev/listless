@@ -10,6 +10,7 @@
     <%= form_for(list) do |f| %>
 
     <span class="textarea1"></span>
+      <label for="title"></label>
       <%= f.text_field :title, placeholder: 'Title Your List', class: 'form-control' %>
 
       <label for="difficulty">Difficulty Level </label>
@@ -27,6 +28,9 @@
       <label for="reward">Reward </label>
       <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="You have the option to set a reward to motivate yourself.">?</a>
       <%= f.text_field :reward, placeholder: 'Treat yoself', class: 'form-control' %>
+
+      <%= f.check_box :completed, class: 'form-control' %>
+      <label for="list_completed">List Completed?</label>
 
       <div><%= f.check_box(:public, {}, true, false) %>
       <label for="list_public">Make This List Public? </label></div>
