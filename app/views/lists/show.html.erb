@@ -16,15 +16,19 @@
           </ol>
           <%= link_to "Add Task", new_task_path(list_id: list.id), class: "btn btn-default" %>
         </div>
+        <%= form_for(list) do |f| %>
+        <%= f.check_box :completed, class: 'form-control' %>
+        <label for="list_completed">List Completed?</label>
+        <% end %>
       </div>
+
 
       <div class="list-col col s12 m6">
         <ul>
-          <li>Difficulty level: <%= list.difficulty %></li>
-          <li>Energy level: <%= list.energy %></li>
+          <li>Difficulty level: <%= list.difficulty %>/5</li>
+          <li>Energy level: <%= list.energy %>/5</li>
           <li>Due date: <%= list.due_date %></li>
           <li>Reward: <%= list.reward %></li>
-          <li>Completed? <%= list.completed %></li>
         </ul>
       </div>
 
@@ -48,11 +52,10 @@
         <% end %>
       </div>
 
-        <%= link_to "Edit", edit_list_path(list), class: "btn btn-default" %>
+      <div class="list-foot col s12">
+        <%= link_to "Update", edit_list_path(list), class: "btn btn-default" %>
         <%= link_to "Archive", flop_list_path(list), class: "btn btn-default" %>
-
-      <div class="col s12">
-        <%= link_to "Need help getting started?", "http://www.google.com/" %>
+        <p><%= link_to "Need help getting started?", "http://www.google.com/" %></p>
       </div>
     </div>
   </div>

@@ -47,6 +47,21 @@ class Clearance::UsersController < Clearance::BaseController
     end
   end
 
+  def edit
+    render locals: {
+      user: User.find(params[:id])
+    }
+  end
+
+  def update
+    if User.exists?(params[:id])
+      User.update(list_params)
+      redirect_to user_path
+    else
+      render :edit
+    end
+  end
+
   private
   def redirect_signed_in_users
     if signed_in?

@@ -7,14 +7,9 @@
   <% end %>
 
   <%= form_for(task) do |f| %>
-    <label for="title">Title: </label>
     <%=f.text_field :title, placeholder: 'Name your task', class: 'form-control' %>
 
-    <label for="description">Description: </label>
     <%=f.text_area :description, placeholder: 'Any other information you want to include?', class: 'form-control' %>
-
-    <%= f.check_box :completed, class: 'form-control' %>
-    <label for="task_completed">Completed?</label>
 
   <%= f.hidden_field :list_id, value: list_id %>
 
