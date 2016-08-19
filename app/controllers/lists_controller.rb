@@ -19,6 +19,41 @@ class ListsController < ApplicationController
     }
   end
 
+  def one_index
+    lists = List.where(difficulty: 1)
+    render locals: {
+      lists: lists
+    }
+  end
+
+  def two_index
+    lists = List.where(difficulty: 2)
+    render locals: {
+      lists: lists
+    }
+  end
+
+  def three_index
+    lists = List.where(difficulty: 3)
+    render locals: {
+      lists: lists
+    }
+  end
+
+  def four_index
+    lists = List.where(difficulty: 4)
+    render locals: {
+      lists: lists
+    }
+  end
+
+  def five_index
+    lists = List.where(difficulty: 5)
+    render locals: {
+      lists: lists
+    }
+  end
+
   def archived_index
     lists = List.where(archived: true)
     render locals: {

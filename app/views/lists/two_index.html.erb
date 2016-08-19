@@ -1,0 +1,13 @@
+<h4>Not feeling great, but need something to do? </h4>
+<p>These are the lists you marked as having a difficulty level of 2/5. See how far you can get. </p>
+  <% lists.each do |list| %>
+  <% unless list.archived? %>
+    <% if list.user == current_user %>
+      <ul class='collection'>
+        <li> <%= link_to list.title, list %> </li>
+      </ul>
+    <% end %>
+  <% end %>
+<% end %>
+
+<%= link_to "All Your Lists", lists_path, class: "btn btn-primary" %>
