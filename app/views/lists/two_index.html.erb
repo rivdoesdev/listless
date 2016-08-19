@@ -1,5 +1,6 @@
 <h4>Not feeling great, but need something to do? </h4>
 <p>These are the lists you marked as having a difficulty level of 2/5. See how far you can get. </p>
+
   <% lists.each do |list| %>
   <% unless list.archived? %>
     <% if list.user == current_user %>
@@ -9,5 +10,7 @@
     <% end %>
   <% end %>
 <% end %>
+<% else %>
+  <p>You don't have any lists ranked 2/5 :(</p>
 
-<%= link_to "All Your Lists", lists_path, class: "btn btn-primary" %>
+<%= link_to "All Lists", lists_path, class: "btn btn-primary" %>
