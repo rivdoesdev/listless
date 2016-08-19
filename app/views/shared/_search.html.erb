@@ -4,12 +4,14 @@
 No results found
 <% end %>
 
+Lists
 <% if lists %>
   <% lists.each do |l| %>
     <p><%= link_to l.title, l %></p>
   <% end %>
 <% end %>
 
+Users
 <% if users %>
   <% users.each do |u| %>
     <p><%= link_to u.name, u %></p>

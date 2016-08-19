@@ -1,13 +1,15 @@
 <div class='dashboard'>
-<background img src="http://i.imgur.com/zoU0RYi.jpg">
+  <background img src="http://i.imgur.com/zoU0RYi.jpg">
 
-<div id='dash-ask'><h2>How are you feeling today?</h2></div>
+  <div id='dash-ask'><h2>How are you feeling today?</h2></div>
 
-<ul class='dash-list'>
-<li><h4><%= link_to "Good", lists_path %></h4></li>
-    <li><h4><%= link_to "Okay", lists_path %></h4></li>
-    <li><h4><%= link_to "Bad", lists_path %></h4></li>
+  <ul class='dash-list'>
+    <li><h4><%= link_to "I can take on the world", lists_path %></h4></li>
+    <li><h4><%= link_to "Positively fine", lists_path %></h4></li>
+    <li><h4><%= link_to "I can scrape by", lists_path %></h4></li>
+    <li><h4><%= link_to "Not great, but I have things to do", lists_path %></h4></li>
+    <li><h4><%= link_to "Can't get out of bed", lists_path %></h4></li>
   </ul>
 
-<%= link_to "Public Lists", '/lists/public' %>
+  <%= link_to "Public Lists", '/lists/public' %>
 </div>

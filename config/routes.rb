@@ -3,6 +3,11 @@ Rails.application.routes.draw do
   get '/lists/public', to: 'lists#public_index'
   get '/lists/public/:id', to: 'lists#public_show'
   get '/lists/archived', to: 'lists#archived_index'
+  get '/lists/fiveoutoffive', to: 'lists#five_index'
+  get '/lists/fouroutoffive', to: 'lists#four_index'
+  get '/lists/threeoutoffive', to: 'lists#three_index'
+  get '/lists/twooutoffive', to: 'lists#two_index'
+  get '/lists/oneoutoffive', to: 'lists#one_index'
 
   resources :allaccesses
   resources :permissions

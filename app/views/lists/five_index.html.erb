@@ -1,0 +1,13 @@
+<h4>You're feeling great today! </h4>
+<p>You marked these lists as the most difficult at 5/5. See how much you can get done while you're feeling like you can take on the world. </p>
+  <% lists.each do |list| %>
+  <% unless list.archived? %>
+    <% if list.user == current_user %>
+      <ul class='collection'>
+        <li> <%= link_to list.title, list %> </li>
+      </ul>
+    <% end %>
+  <% end %>
+<% end %>
+
+<%= link_to "All Your Lists", lists, class: "btn btn-primary" %>
