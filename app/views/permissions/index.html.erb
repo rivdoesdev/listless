@@ -1,25 +1,34 @@
 <p>Everyone Who Can See Your Lists: </p>
-  <div class='all-perm'><b>All Access:</b>
+  <div class='all-perm'><b>Access To All Lists</b>
     <ul class='collection'>
+      <% if current_user.allaccesses.empty? %>
+        <p>No Users have been given permission to view all your lists</p>
+      <% end %>
       <% current_user.allaccesses.each do |access| %>
-      <li class='collection-item perm-users'>
-        <%= access.assignee.name.capitalize %>
-        <span class='red-x'><%= link_to "X", allaccess_path(access), method: :delete %></span>
-      </li>
+        <li class='collection-item perm-users'>
+          <%= access.assignee.name.capitalize %>
+          <span class='red-x'><%= link_to "X", allaccess_path(access), method: :delete %></span>
+        </li>
       <% end %>
     </ul>
   </div>
 
-  <div class='list-perm'><b>Access To Individual Lists: </b>
+  <div class='list-perm'><b>Access To Individual Lists</b>
+    <ul class='collection'>
+    <% if permissions_grouped_by_list.empty? %>
+      <p> No Users have been given permission to view your lists</p>
+    <% end %>
     <% permissions_grouped_by_list.each do |list, perms| %>
-      <h4><%= list.title %></h4>
-      <ul class='collection'>
-      <% perms.each do |perm| %>
         <li class='collection-item perm-users'>
-          <%= perm.user.name.capitalize %>
-          <span class='red-x'><%= link_to "X", permission_path(perm), method: :delete %></span>
+          <%= list.title %> -
+          <% if perms.empty? %>
+            <p>No Users</p>
+          <% end %>
+          <% perms.each do |perm| %>
+            <%= perm.user.name.capitalize %>
+            <span class='red-x'><%= link_to "X", permission_path(perm), method: :delete %></span>
+          <% end %>
         </li>
-      <% end %>
       </ul>
     <% end %>
   </div>
