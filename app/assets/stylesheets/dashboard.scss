@@ -7,14 +7,18 @@ body {
     height: 100%;
   }
   .dash-header {
-    padding-top: 100px;
   }
   .dash-content {
- text-align: center;
- color: white;
-
-  .dash-list a {
-    color: white;
-  }
+    position: relative;
+   text-align: center;
+   color: white;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    .dash-list a {
+      color: white;
+    }
   }
 }
