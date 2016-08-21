@@ -17,6 +17,8 @@
 $primary-color: color("grey", "lighten-4") !default;
 @import "materialize";
 
+
+
 .perm-users{
   .red-x {
     a:link {
@@ -29,7 +31,7 @@ $primary-color: color("grey", "lighten-4") !default;
   nav a {
     color: #28666E
   }
-  width: 100%;
+
   .header-title {
    margin-top: 10px;
   }
