@@ -1,15 +1,18 @@
 <div class='dashboard'>
-  <%= image_tag('background', class: "dash-background") %>
 
-  <div id='dash-ask'><h2>How are you feeling today?</h2></div>
+  <div class='dash-content'>
+    <h2>How are you feeling today?</h2>
 
-  <ul class='dash-list'>
-    <li><h4><%= link_to "I can take on the world", '/lists/fiveoutoffive' %></h4></li>
-    <li><h4><%= link_to "Positively fine", '/lists/fouroutoffive' %></h4></li>
-    <li><h4><%= link_to "I can scrape by", '/lists/threeoutoffive' %></h4></li>
-    <li><h4><%= link_to "Not great, but I have things to do", '/lists/twooutoffive' %></h4></li>
-    <li><h4><%= link_to "Can't get out of bed", '/lists/oneoutoffive' %></h4></li>
-  </ul>
+    <ul class='dash-list'>
+      <li><h4><%= link_to "I can take on the world", '/lists/fiveoutoffive' %></h4></li>
+      <li><h4><%= link_to "Positively fine", '/lists/fouroutoffive' %></h4></li>
+      <li><h4><%= link_to "I can scrape by", '/lists/threeoutoffive' %></h4></li>
+      <li><h4><%= link_to "Not great, but I have things to do", '/lists/twooutoffive' %></h4></li>
+      <li><h4><%= link_to "Can't get out of bed", '/lists/oneoutoffive' %></h4></li>
+    </ul>
 
-  <%= link_to "Public Lists", '/lists/public' %>
+    <div class='list-foot'>
+    <%= link_to "Public Lists", '/lists/public' %>
+    </div>
+  </div>
 </div>

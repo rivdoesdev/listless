@@ -1,8 +1,16 @@
-.dashboard{
-  #dash-ask {
-    text-align: center;
+body {
+  .dashboard {
+  background-image: asset_url("background.jpeg");
+  background-size: cover;
+  background-position: center center;
+    margin-top: -26;
+    height: 100%;
   }
-  .dash-list {
-    text-align: center;
+  .dash-header {
+    padding-top: 100px;
+  }
+  .dash-content {
+
+ text-align: center;
   }
 }

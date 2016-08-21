@@ -13,6 +13,8 @@
  *= require_tree .
  *= require_self
  */
+@import "materialize/components/color";
+$primary-color: color("grey", "lighten-4") !default;
 @import "materialize";
 
 .perm-users{
@@ -24,8 +26,11 @@
 }
 
 .main-header {
+  nav a {
+    color: #28666E
+  }
   width: 100%;
-  header-title {
+  .header-title {
    margin-top: 10px;
   }
   .app-title {
@@ -42,8 +47,9 @@
     .material-icons {
       margin-left: 15px;
       font-size: 180%;
-    position: relative;
-    top: -1px;
+      position: relative;
+      top: -1px;
+      color: #28666E;
     }
   }
     .search-icon {
@@ -56,6 +62,7 @@
     }
   }
 
+
   .list-show {
     padding-left: 3em;
   }
@@ -63,19 +70,3 @@
   .list-foot {
     text-align: center;
   }
-
-.dashboard {
-  .dash-ask {
-    text-align: center;
-  }
-  .dash-background {
-    position: fixed;
-    z-index: -999;
-    top: -20px;
-    bottom: -20px;
-    background-size: auto;
-    height: 100vh;
-    width: 100%;
-  }
-
-}

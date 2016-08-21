@@ -11,4 +11,8 @@ class ApplicationController < ActionController::Base
     list.allowed_users.include?(current_user) || list.user.users_with_access.include?(current_user)
   end
   helper_method :you_have_access_to
+
+  def disable_nav
+    @disable_nav = true
+  end
 end
