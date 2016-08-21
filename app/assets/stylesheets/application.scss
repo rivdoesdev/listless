@@ -69,4 +69,7 @@ $primary-color: color("grey", "lighten-4") !default;
 
   .list-foot {
     text-align: center;
+    a {
+      color: white;
+    }
   }

@@ -10,7 +10,11 @@ body {
     padding-top: 100px;
   }
   .dash-content {
-
  text-align: center;
+ color: white;
+
+  .dash-list a {
+    color: white;
+  }
   }
 }
