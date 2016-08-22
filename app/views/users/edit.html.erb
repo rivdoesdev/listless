@@ -1,13 +1,25 @@
 <div id="clearance" class="sign-up">
   <h2><%= t(".title") %></h2>
 
-  <%= form_for @user do |form| %>
-    <%= render partial: '/users/form.html.erb', object: form %>
-    <%= form.file_field :avatar %>
+  <%= form_for @user, url: users_path, html: { multipart: true } do |f| %>
+    <%= render partial: '/users/form.html.erb', object: f %>
+
+    <label for="user_birthday">Birthday </label>
+    <%= f.date_field :birthday, class: 'datepicker' %>
+
+    <label for="user_phone_number">Phone Number </label>
+    <%= f.telephone_field(:phone_number) %>
+
+    <label for="user_about_me">About </label>
+    <%= f.text_area :about_me, class: 'form-control' %>
+
+    <label for="user_avatar">Profile Picture </label>
+    <div class="avatar-upload">
+      <%= f.file_field :avatar %>
+  </div>
 
     <div class="submit-field">
-      <%= form.submit "Submit", class: 'btn'%>
+      <%= f.submit "Submit", class: 'btn'%>
     </div>
-
   <% end %>
 </div>

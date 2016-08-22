@@ -16,6 +16,7 @@
             <% list.tasks.each do |task| %>
             <li>
               <%= link_to task.title, task %>
+              <p><%= task.description %>
             </li>
             <% end %>
           </ol>
@@ -42,7 +43,7 @@
         <%= f.hidden_field :list_id, value: list.id %>
 
         <div>
-          <%= f.submit class: "waves-effect waves-light btn" %>
+          <%= f.submit class: "btn" %>
         </div>
       <% end %>
 

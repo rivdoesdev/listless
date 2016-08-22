@@ -31,7 +31,8 @@ class TasksController < ApplicationController
       redirect_to "/lists/#{task.list_id}"
     else
       render :new, locals: {
-        task: task
+        task: task,
+        list_id: list_id
       }
     end
   end
@@ -50,7 +51,10 @@ class TasksController < ApplicationController
       redirect_to "/lists/#{task.list_id}"
       flash[:alert] = "Updated"
     else
-      render :edit
+      render :edit, locals: {
+        task: task,
+        list_id: list_id
+      }
     end
   end
 
