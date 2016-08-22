@@ -1,17 +1,18 @@
 <h4>Your Lists: </h4>
-<% if lists.where(archived: false).count.zero? %>
-  You don't have any lists yet!
-<% end %>
-
   <% lists.each do |list| %>
-  <% unless list.archived? %>
-    <% if list.user == current_user %>
-      <ul class='collection'>
-        <li> <%= link_to list.title, list %> </li>
-      </ul>
+    <% if lists.where(archived: false).count.zero? %>
+      You don't have any lists yet!
+      <% end %>
+
+      <% unless list.archived? %>
+        <% if list.user == current_user %>
+          <ul class='collection'>
+            <li> <%= link_to list.title, list %> </li>
+          </ul>
+      <% end %>
     <% end %>
   <% end %>
-<% end %>
+
 
 <h4>You Have Access To: </h4>
 <ul class='collection'>
