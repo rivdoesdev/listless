@@ -1,14 +1,16 @@
 <h4>Feeling like you can't even get out of bed? </h4>
 <p>These are the lists you marked as the lowest level of difficulty. Try starting with one of these and see how you feel. </p>
 
-  <% lists.each do |list| %>
+<% if lists.where(archived: false).count.zero? %>
+  <p>You don't have any lists ranked 1/5 :(</p>
+<% end %>
+
+<% lists.each do |list| %>
   <% unless list.archived? %>
     <% if list.user == current_user %>
       <ul class='collection'>
         <li> <%= link_to list.title, list %> </li>
       </ul>
-      <% else %>
-        <p>You don't have any lists ranked 1/5 :(</p>
     <% end %>
   <% end %>
 <% end %>

@@ -1,14 +1,16 @@
 <h4>*Positively Fine* </h4>
 <p>These lists are on the 4/5 level of difficulty. How many tasks can you complete? </p>
 
-  <% lists.each do |list| %>
+<% if lists.where(archived: false).count.zero? %>
+  <p>You don't have any lists ranked 4/5 :(</p>
+<% end %>
+
+<% lists.each do |list| %>
   <% unless list.archived? %>
     <% if list.user == current_user %>
       <ul class='collection'>
         <li> <%= link_to list.title, list %> </li>
       </ul>
-      <% else %>
-        <p>You don't have any lists ranked 4/5 :(</p>
     <% end %>
   <% end %>
 <% end %>

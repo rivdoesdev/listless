@@ -1,14 +1,16 @@
 <h4>Congratulations, you're feeling like you can scrape by! </h4>
 <p>These lists are marked with 3/5 on the difficulty scale. Any of these lists should match up with your energy today. </p>
 
-  <% lists.each do |list| %>
+<% if lists.where(archived: false).count.zero? %>
+  <p>You don't have any lists ranked 3/5 :(</p>
+<% end %>
+
+<% lists.each do |list| %>
   <% unless list.archived? %>
     <% if list.user == current_user %>
       <ul class='collection'>
         <li> <%= link_to list.title, list %> </li>
       </ul>
-      <% else %>
-        <p>You don't have any lists ranked 3/5 :(</p>
     <% end %>
   <% end %>
 <% end %>
