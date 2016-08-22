@@ -1,19 +1,19 @@
 <h4>Search Results</h4>
 
 <% if lists.empty? && users.empty? %>
-No results found
-<% end %>
-
-Lists
-<% if lists %>
-  <% lists.each do |l| %>
-    <p><%= link_to l.title, l %></p>
+  <h5 class='centered'>No results found</h5>
+<% else %>
+  <h5>Lists</h5>
+  <% if lists %>
+    <% lists.each do |l| %>
+      <p><%= link_to l.title, l %></p>
+    <% end %>
   <% end %>
-<% end %>
 
-Users
-<% if users %>
-  <% users.each do |u| %>
-    <p><%= link_to u.name, u %></p>
+  <h5>Users</h5>
+  <% if users %>
+    <% users.each do |u| %>
+      <p><%= link_to u.name, u %></p>
+    <% end %>
   <% end %>
 <% end %>
