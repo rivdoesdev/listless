@@ -17,6 +17,11 @@
 $primary-color: color("grey", "lighten-4") !default;
 @import "materialize";
 
+body {
+  .yield-body {
+    padding: 20px;
+  }
+}
 
 
 .perm-users{
