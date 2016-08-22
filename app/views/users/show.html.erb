@@ -1,6 +1,14 @@
-<p>Welcome <%= current_user.name.capitalize %>!
-<% if signed_in? %>
+<div class="row">
+  <div class="col s12">
+<p>Welcome <%= current_user.name.capitalize %>!</p>
+<div class="col s6">
+<p><% if signed_in? %>
   <%= link_to "Sign Out", sign_out_path, method: :delete %>
 <% end %></p>
 
 <%= link_to "Edit Profile", edit_user_path %>
+</div>
+</div>
+<% if @user.avatar %>
+  <%= image_tag @user.avatar.url(:thumb) %>
+<% end %>

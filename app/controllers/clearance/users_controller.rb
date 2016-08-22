@@ -20,9 +20,9 @@ class Clearance::UsersController < Clearance::BaseController
   end
 
   def show
-    user = User.find(params.fetch(:id))
+    @user = User.find(params.fetch(:id))
     if signed_in?
-      render template: 'users/show.html.erb', locals: { user: user }
+      render template: 'users/show.html.erb', locals: { user: @user }
     else
       redirect_to sign_in_path
     end
@@ -77,11 +77,13 @@ class Clearance::UsersController < Clearance::BaseController
     name = user_params.delete(:name)
     email = user_params.delete(:email)
     password = user_params.delete(:password)
+    avatar = user_params.delete(:avatar)
 
     Clearance.configuration.user_model.new(user_params).tap do |user|
       user.name = name
       user.email = email
       user.password = password
+      user.avatar = avatar
     end
   end
 

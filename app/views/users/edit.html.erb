@@ -3,6 +3,7 @@
 
   <%= form_for @user do |form| %>
     <%= render partial: '/users/form.html.erb', object: form %>
+    <%= form.file_field :avatar %>
 
     <div class="submit-field">
       <%= form.submit "Submit", class: 'btn'%>
