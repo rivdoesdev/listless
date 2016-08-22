@@ -1,6 +1,6 @@
 <% if list.archived? %>
   This list has been archived.
-  <%= link_to "Undo", flop_list_path(list), class: "btn btn-default" %>
+  <%= link_to "Undo", flop_list_path(list), class: "btn" %>
 <% else %>
 
   <div class="list-show">
@@ -19,7 +19,7 @@
             </li>
             <% end %>
           </ol>
-          <%= link_to "Add Task", new_task_path(list_id: list.id), class: "btn btn-default" %>
+          <%= link_to "Add Task", new_task_path(list_id: list.id), class: "btn" %>
         </div>
       </div>
 
@@ -54,8 +54,8 @@
       </div>
 
       <div class="list-foot col s12">
-        <%= link_to "Update", edit_list_path(list), class: "btn btn-default" %>
-        <%= link_to "Archive", flop_list_path(list), class: "btn btn-default" %>
+        <%= link_to "Update", edit_list_path(list), class: "btn" %>
+        <%= link_to "Archive", flop_list_path(list), class: "btn" %>
         <p><%= link_to "Need help getting started?", "http://www.google.com/" %></p>
       </div>
     </div>

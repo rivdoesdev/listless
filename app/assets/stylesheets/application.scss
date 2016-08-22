@@ -17,13 +17,6 @@
 $primary-color: color("grey", "lighten-4") !default;
 @import "materialize";
 
-body {
-  color: #28666E;
-}
-  .yield-body {
-      padding: 20px;
-  }
-
 .btn {
   background-color: $primary-color;
   border: 1px solid #28666E;
@@ -33,6 +26,15 @@ body {
   background-color: #28666E;
   color: white;
 }
+
+body {
+  color: #28666E;
+}
+  .yield-body {
+      padding: 20px;
+  }
+
+
 
 .perm-users{
   .red-x {
@@ -85,12 +87,9 @@ a {
 
 
   .list-show {
-    padding-left: 3em;
+
   }
 
   .list-foot {
     text-align: center;
-    a {
-      color: white;
-    }
   }
