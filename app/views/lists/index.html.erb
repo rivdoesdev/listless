@@ -1,4 +1,8 @@
 <h4>Your Lists: </h4>
+<% if lists.where(archived: false).count.zero? %>
+  You don't have any lists yet!
+<% end %>
+
   <% lists.each do |list| %>
   <% unless list.archived? %>
     <% if list.user == current_user %>
