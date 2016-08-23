@@ -53,9 +53,8 @@ class Clearance::UsersController < Clearance::BaseController
   end
 
   def update
-    @user = user_from_params
-    if @user.exists?(params[:id])
-      @user.update(user_from_params)
+    @user = current_user
+    if @user.update(user_params)
       redirect_to user_path
     else
       render :edit
