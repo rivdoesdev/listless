@@ -11,4 +11,8 @@ class DashboardController < ApplicationController
       render template: 'dashboard/public_index.html.erb'
     end
   end
+
+  def about
+    @disable_nav = false
+  end
 end

@@ -1,5 +1,6 @@
 class Task < ApplicationRecord
   belongs_to :list
+  has_many :tasks
 
   validates :title, length: { minimum: 2, maximum: 200 }
   validates :completed, default: false, inclusion: { in: [true, false] }

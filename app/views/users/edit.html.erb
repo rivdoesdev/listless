@@ -3,7 +3,7 @@
     <div class='sign-title'>
       <h4>Edit Your Account</h4></div>
 
-      <%= form_for @user, url: users_path, html: { multipart: true } do |f| %>
+      <%= form_for current_user, html: { multipart: true } do |f| %>
         <%= render partial: '/users/form.html.erb', object: f %>
 
         <label for="user_birthday">Birthday </label>
