@@ -35,4 +35,8 @@ body {
 }
 .dash-foot a {
   color: white;
+  &:hover {
+    transition: all 0.2s ease;
+    color: lightblue;
+  }
 }
