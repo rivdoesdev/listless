@@ -24,13 +24,13 @@
       <ul class='collection'>
         <% lists.each do |list| %>
           <% if you_have_access_to(list) == 0 %>
+            You do not have access to any other users' lists.
+            <% elsif you_have_access_to(list) %>
             <li class='collection-item perm-users'>
               <%= link_to list.title, list %> (<%= list.user.name.capitalize %>)
             </li>
           <% end %>
         <% end %>
-      <% else %>
-        You do not have access to any other users' lists.
       </ul>
     </div>
     <p><%= link_to "Permissions", permissions_path %></p>
