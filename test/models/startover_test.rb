@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class StartoverListsControllerTest < ActionDispatch::IntegrationTest
+class StartoverTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

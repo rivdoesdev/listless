@@ -1,13 +1,6 @@
 class TasksController < ApplicationController
   before_action :require_login
 
-  def index
-    tasks = Task.all
-    render locals: {
-      tasks: tasks
-    }
-  end
-
   def show
     if Task.exists?(params[:id])
     render locals: {

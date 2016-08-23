@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :startover_lists
+  resources :startovers
   get '/about', to: 'dashboard#about'
   get '/lists/public', to: 'lists#public_index'
   get '/lists/public/:id', to: 'lists#public_show'
