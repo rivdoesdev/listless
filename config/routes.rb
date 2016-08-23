@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  get '/public', to: 'dashboard#public_index'
   get '/lists/public', to: 'lists#public_index'
   get '/lists/public/:id', to: 'lists#public_show'
   get '/lists/archived', to: 'lists#archived_index'
