@@ -1,13 +1,15 @@
 <div id="clearance" class="sign-up">
-  <h2><%= t(".title") %></h2>
+  <div class='sign-form'>
+    <div class='sign-title'><h4>Sign Up</h4></div>
 
-  <%= form_for @user do |form| %>
-    <%= render partial: '/users/form.html.erb', object: form %>
-    <%= form.file_field :avatar %>
+    <%= form_for @user do |form| %>
+      <%= render partial: '/users/form.html.erb', object: form %>
+      <div class="submit-field">
+        <p class='sign-submit'>
+          <%= form.submit "Submit", class: 'btn'%>
+        </p>
+      </div>
 
-    <div class="submit-field">
-      <%= form.submit "Submit", class: 'btn'%>
-    </div>
-
-  <% end %>
+    <% end %>
+  <div>
 </div>

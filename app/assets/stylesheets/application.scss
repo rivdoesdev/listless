@@ -85,11 +85,26 @@ a {
     }
   }
 
-
   .list-details {
     padding-top: 132px;
   }
 
   .list-foot {
     text-align: center;
+  }
+
+  #clearance {
+    .sign-form {
+      padding-left: 15px;
+      padding-right: 15px;
+      .sign-title {
+        text-align: center;
+      }
+      .sign-submit {
+        text-align: center;
+      }
+      .other-links {
+        text-align: center;
+      }
+    }
   }
