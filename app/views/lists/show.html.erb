@@ -22,10 +22,11 @@
           </ol>
           <%= link_to "Add Task", new_task_path(list_id: list.id), class: "btn" %>
         </div>
-      </div>
 
-      <div class="list-details">
+
+
         <div class="list-col col s12 m6">
+          <div class="list-details">
           <ul>
             <li>Difficulty level: <%= list.difficulty %>/5</li>
             <li>Energy level: <%= list.energy %>/5</li>
@@ -34,6 +35,7 @@
           </ul>
         </div>
       </div>
+    </div>
 
       <div class='perm-form'>
       <%= form_for(permission) do |f| %>
@@ -58,8 +60,9 @@
       <div class="list-foot col s12">
         <%= link_to "Update", edit_list_path(list), class: "btn" %>
         <%= link_to "Archive", flop_list_path(list), class: "btn" %>
-        <p><%= link_to "Need help getting started?", "http://www.google.com/" %></p>
+        <p><%= link_to "Need help getting started?", "http://www.google.com/", target: "_blank" %></p>
       </div>
     </div>
+  </div>
   </div>
 <% end %>
