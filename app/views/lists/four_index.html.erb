@@ -1,19 +1,53 @@
 <h4>*Positively Fine* </h4>
-<p>These lists are on the 4/5 level of difficulty. How many tasks can you complete? </p>
+<p>These lists are on the 4/5 level of difficulty and below. How many tasks can you complete? </p>
 
 <% if lists.where(archived: false).count.zero? %>
-  <p>You don't have any lists ranked 4/5 :(</p>
+  <p>You don't have any lists ranked 4/5 or lower :(</p>
 <% end %>
 
+<p>4
 <% lists.each do |list| %>
   <% unless list.archived? %>
     <% if list.user == current_user %>
-      <ul class='collection'>
-        <li> <%= link_to list.title, list %> </li>
-      </ul>
+      <% if list.difficulty == 4 %>
+      <li> <%= link_to list.title, list %> </li>
+      <% end %>
     <% end %>
   <% end %>
-<% end %>
+<% end %></p>
+
+<p>3
+<% lists.each do |list| %>
+  <% unless list.archived? %>
+    <% if list.user == current_user %>
+      <% if list.difficulty == 3 %>
+      <li> <%= link_to list.title, list %> </li>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %></p>
+
+<p>2
+<% lists.each do |list| %>
+  <% unless list.archived? %>
+    <% if list.user == current_user %>
+      <% if list.difficulty == 2 %>
+      <li> <%= link_to list.title, list %> </li>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %></p>
+
+<p>1
+<% lists.each do |list| %>
+  <% unless list.archived? %>
+    <% if list.user == current_user %>
+      <% if list.difficulty == 1 %>
+      <li> <%= link_to list.title, list %> </li>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %></p>
 
 
 <%= link_to "All Lists", lists_path, class: "btn" %>

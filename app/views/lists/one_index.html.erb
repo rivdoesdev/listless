@@ -5,15 +5,16 @@
   <p>You don't have any lists ranked 1/5 :(</p>
 <% end %>
 
+<p>1
 <% lists.each do |list| %>
   <% unless list.archived? %>
     <% if list.user == current_user %>
-      <ul class='collection'>
-        <li> <%= link_to list.title, list %> </li>
-      </ul>
+      <% if list.difficulty == 1 %>
+      <li> <%= link_to list.title, list %> </li>
+      <% end %>
     <% end %>
   <% end %>
-<% end %>
+<% end %></p>
 
 
 <%= link_to "All Lists", lists_path, class: "btn" %>

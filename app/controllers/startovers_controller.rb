@@ -3,7 +3,7 @@ class StartoversController < ApplicationController
     if params[:search]
       search_params
     else
-      startovers = Startovers.all
+      startovers = Startover.all
       render locals: {
         startovers: startovers,
       }
@@ -16,32 +16,29 @@ class StartoversController < ApplicationController
       startover: Startover.find(params[:id])
     }
     else
-      render html: { message: "List not found"}, status: 404
+      render html: { message: "We couldn't find that!"}, status: 404
     end
   end
 
   def new
     render locals: {
-      list_id: params[:list_id],
-      task: Task.new
+      startover: Startover.new
     }
   end
 
   def create
     startover = Startover.new(so_params)
     if startover.save
-      redirect_to lists_path
+      redirect_to startovers_path
     else
       render :new, locals: {
-        startover: startover,
-        list_id: list_id
+        startover: startover
       }
     end
   end
 
   def edit
     render locals: {
-      list_id: params[:list_id],
       startover: Startover.find(params[:id])
     }
   end
@@ -50,12 +47,11 @@ class StartoversController < ApplicationController
     startover = Startover.find(params[:id])
     if startover
       startover.update(so_params)
-      redirect_to lists_path
+      redirect_to startovers_path
       flash[:alert] = "Updated"
     else
       render :edit, locals: {
-        task: task,
-        list_id: list_id
+        startover: startover
       }
     end
   end
@@ -65,7 +61,7 @@ class StartoversController < ApplicationController
       startover.archived = !startover.archived || !startover.archived = startover.archived
       startover.save
 
-      redirect_to list_path(list)
+      redirect_to startovers_path
   end
 end
 

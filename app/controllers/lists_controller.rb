@@ -27,28 +27,29 @@ class ListsController < ApplicationController
   end
 
   def two_index
-    lists = List.where(difficulty: 2)
+    lists = List.where(difficulty: 1) && List.where(difficulty: 2)
     render locals: {
       lists: lists
     }
   end
 
   def three_index
-    lists = List.where(difficulty: 3)
+    lists = List.where(difficulty: 1) && List.where(difficulty: 2) &&
+    List.where(difficulty: 3)
     render locals: {
       lists: lists
     }
   end
 
   def four_index
-    lists = List.where(difficulty: 4)
+    lists = List.all - List.where(difficulty: 5)
     render locals: {
       lists: lists
     }
   end
 
   def five_index
-    lists = List.where(difficulty: 5)
+    lists = List.all
     render locals: {
       lists: lists
     }
