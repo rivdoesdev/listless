@@ -1,0 +1,2 @@
+class StartoverListsController < ApplicationController
+end
