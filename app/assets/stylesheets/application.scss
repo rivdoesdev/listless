@@ -65,7 +65,7 @@ a {
       max-height: 20px;
       border-radius: 5px;
       padding-left: 2rem;
-      min-width: 150px;
+      min-width: 80px;
     }
     .material-icons {
       margin-left: 15px;
@@ -106,5 +106,18 @@ a {
       .other-links {
         text-align: center;
       }
+    }
+  }
+
+  .about {
+    .about-title {
+      text-align: center;
+    }
+    .about-body {
+      margin-left: 10px;
+      margin-right: 5px;
+    }
+    .about-list {
+      text-indent: 50px;
     }
   }

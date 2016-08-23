@@ -5,17 +5,23 @@
         <div class="col s3 m3">
           <p class="header-title"><h5><%= link_to "listless", root_path %></h5></p>
         </div>
-        <div class="col s4 m2">
+        <div class="col s3 m2">
           <%= link_to lists_path do %>
           <i class="material-icons">list</i>
           <% end %>
         </div>
-        <div class="sign-in-out-up col s4 m2">
+        <div class="sign-in-out-up col s3 m2">
           <%= link_to current_user do %>
           <i class="material-icons">perm_identity</i>
           <% end %>
         </div>
-        <div class="col m5 hide-on-small-only">
+        <div class="how-to col s3 m2">
+          <%= link_to '/about' do %>
+          <i class="material-icons">info</i>
+          <% end %>
+        </div>
+
+        <div class="col m3 hide-on-small-only">
           <div class="nav-wrapper">
             <div class="input-field">
               <div class="search-box">
