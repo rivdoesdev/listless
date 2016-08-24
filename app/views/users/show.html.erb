@@ -1,15 +1,20 @@
 <div class="row">
   <div class="col s12 m6">
+    <div class='welcome-user'>
     <% if @user.avatar %>
-      <%= image_tag @user.avatar.url(:thumb) %>
+      <%= image_tag @user.avatar.url(:medium) %>
     <% end %>
-    <p>Welcome <%= current_user.name.capitalize %>!</p>
+    <p>Welcome, <%= current_user.name.capitalize %>!</p>
   </div>
+</div>
 
     <div class="col s12 m6">
-      <%= @user.email %>
-      <%= @user.birthday %>
-      <%= @user.phone_number %>
+      <ul class='user-details'>
+        <li><%= @user.email %></li>
+        <li><%= @user.birthday %></li>
+        <li><%= @user.phone_number %></li>
+        <li><%= @user.about_me %></li>
+      </ul>
 
       <p><% if signed_in? %>
         <%= link_to "Sign Out", sign_out_path, method: :delete %>
@@ -17,8 +22,4 @@
 
     <%= link_to "Edit Profile", edit_user_path %>
   </div>
-</div>
-
-<div class="row">
-  <%= @user.about_me %>
 </div>

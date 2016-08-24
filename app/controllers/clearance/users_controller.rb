@@ -48,16 +48,16 @@ class Clearance::UsersController < Clearance::BaseController
   end
 
   def edit
-    @user = user_from_params
-    render template: "users/edit.html.erb"
+    user = User.find_by(id: params[:id])
+    render template: "users/edit.html.erb", locals: { user: user }
   end
 
   def update
-    @user = current_user
-    if @user.update(user_params)
+    user = User.find_by(id: params[:id])
+    if user.update(user_params_update)
       redirect_to user_path
     else
-      render :edit
+      render template: "users/edit.html.erb", locals: { user: user }
     end
   end
 
@@ -85,14 +85,18 @@ class Clearance::UsersController < Clearance::BaseController
       user.name = name
       user.email = email
       user.password = password
-      user.avatar = avatar
       user.birthday = birthday
       user.phone_number = phone_number
       user.about_me = about_me
+      user.avatar = avatar
     end
   end
 
   def user_params
     params[Clearance.configuration.user_parameter] || Hash.new
+  end
+
+  def user_params_update
+    params.require(:user).permit(:name, :email, :password, :birthday, :phone_number, :about_me, :avatar) || Hash.new
   end
 end

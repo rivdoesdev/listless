@@ -1,3 +1,9 @@
+<% if @user.errors.any? %>
+    <% @user.errors.full_messages.each do |msg| %>
+      <p> <%= msg %></p>
+    <% end %>
+  <% end %>
+
 <div id="clearance" class="sign-up">
   <div class='sign-form'>
     <div class='sign-title'><h4>Sign Up</h4></div>

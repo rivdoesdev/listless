@@ -1,28 +1,34 @@
+<% if user.errors.any? %>
+    <% user.errors.full_messages.each do |msg| %>
+      <p> <%= msg %></p>
+    <% end %>
+  <% end %>
+
 <div id="clearance" class="sign-up">
   <div class='sign-form'>
     <div class='sign-title'>
       <h4>Edit Your Account</h4></div>
 
-      <%= form_for current_user, url: user_path, html: { multipart: true } do |f| %>
-        <%= render partial: '/users/form.html.erb', object: f %>
+      <%= form_for user, url: user_path, html: { multipart: true } do |form| %>
+        <%= render partial: '/users/form.html.erb', locals: { form: form, user: user } %>
 
-        <label for="user_birthday">Birthday </label>
-        <%= f.date_field :birthday, class: 'datepicker' %>
+        <label for="birthday">Birthday </label>
+        <%= form.date_field :birthday, class: 'datepicker' %>
 
-        <label for="user_phone_number">Phone Number </label>
-        <%= f.telephone_field(:phone_number) %>
+        <label for="phone_number">Phone Number </label>
+        <%= form.telephone_field(:phone_number) %>
 
-        <label for="user_about_me">About </label>
-        <%= f.text_area :about_me, class: 'form-control' %>
+        <label for="about_me">About </label>
+        <%= form.text_area :about_me, class: 'form-control' %>
 
-        <label for="user_avatar">Profile Picture </label>
+        <label for="avatar">Profile Picture </label>
         <div class="avatar-upload">
-          <%= f.file_field :avatar %>
+          <%= form.file_field :avatar %>
         </div>
 
       <div class="submit-field">
         <p class='sign-submit'>
-          <%= f.submit "Submit", class: 'btn'%>
+          <%= form.submit "Submit", class: 'btn'%>
         </p>
       </div>
     <% end %>
