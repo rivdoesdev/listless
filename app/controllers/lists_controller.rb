@@ -67,7 +67,7 @@ class ListsController < ApplicationController
     if list
       if has_permission?(list)
         render locals: {
-        list: list, permission: Permission.new
+        list: list, permission: Permission.new, startover: Startover.new
         }
       else
         flash[:alert] = "You do not have permission to view this page."
@@ -149,5 +149,5 @@ end
 
 private
 def list_params
-  params.require(:list).permit(:title, :difficulty, :energy, :due_date, :reward, :public, :completed, :user_id)
+  params.require(:list).permit(:title, :difficulty, :energy, :due_date, :reward, :public, :archived, :user_id)
 end

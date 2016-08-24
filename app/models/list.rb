@@ -17,4 +17,9 @@ class List < ApplicationRecord
   def self.search(query)
     where("title ~* '.*#{query}.*'")
   end
+
+  def completed?(user)
+    so = Startover.find_by(user: user, list: self)
+    so && so.completed?
+  end
 end

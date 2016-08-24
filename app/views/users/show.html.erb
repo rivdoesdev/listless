@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col s12 m6">
     <% if @user.avatar %>
-      <%= image_tag @user.avatar(:thumb) %>
+      <%= image_tag @user.avatar.url(:thumb) %>
     <% end %>
     <p>Welcome <%= current_user.name.capitalize %>!</p>
   </div>

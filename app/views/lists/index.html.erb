@@ -10,7 +10,20 @@
           <% unless list.archived? %>
             <% if list.user == current_user %>
               <ul class='collection'>
-                <li> <%= link_to list.title, list %> </li>
+                <li>
+                  <%= list.title %>
+                  <p>
+                    <% if current_user.not_started?(list) %>
+                      <%= link_to "Start", startovers_path(startover: {
+                           list_id: list.id,
+                           user_id: current_user.id,
+                           completed: false
+                         }), method: :POST, class: 'btn' %>
+                    <% else %>
+                      <%= link_to "Continue", list, class: "btn" %>
+                    <% end %>
+                  </p>
+                </li>
               </ul>
           <% end %>
         <% end %>

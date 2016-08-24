@@ -29,9 +29,6 @@
       <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="You have the option to set a reward to motivate yourself.">?</a>
       <%= f.text_field :reward, placeholder: 'Treat yoself', class: 'form-control' %>
 
-      <%= f.check_box :completed, class: 'form-control' %>
-      <label for="list_completed">List Completed?</label>
-
       <div><%= f.check_box(:public, {}, true, false) %>
       <label for="list_public">Make This List Public? </label></div>
 

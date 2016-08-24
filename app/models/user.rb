@@ -19,4 +19,13 @@ class User < ApplicationRecord
   def self.search(query)
     where("name ~* '.*#{query}.*'")
   end
+
+  def not_started?(list)
+    so = Startover.find_by(list: list, user: self)
+    if so && so.completed?
+      false
+    else
+      true
+    end
+  end
 end
