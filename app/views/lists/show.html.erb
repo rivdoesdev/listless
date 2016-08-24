@@ -7,11 +7,6 @@
     <div class="row">
       <div class="list-col col s12 m6">
         <div class='list-tasks'><h4><%= list.title %></h4>
-          <% if list.completed?(current_user) %>
-          <p> Finished! </p>
-          <% else %>
-          <p> In Progress </p>
-          <% end %>
           <ol>
             <% list.tasks.each do |task| %>
             <li>
@@ -36,10 +31,15 @@
             <li>Reward: <%= list.reward %></li>
           </ul>
         </div>
-        <%= form_for(startover) do |f| %>
-          <%= f.check_box :completed, id: 'startover_completed', class: 'form-control' %>
-          <%= f.label 'List Completed?', id:'startover_completed' %>
+        <% if so.present? %>
+          <%= link_to "Complete", startover_path(so, startover: {
+             list_id: list.id,
+             user_id: current_user.id,
+             completed: true
+           }), method: :PUT, class: 'btn' %>
         <% end %>
+        <br>
+        <br>
 
 
 

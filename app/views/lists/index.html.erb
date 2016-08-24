@@ -1,3 +1,10 @@
+<div class='row'>
+  <div class='col s12'>
+    <div class='new-list-btn'>
+      <%= link_to "New List", new_list_path, class: "btn" %>
+    </div>
+  </div>
+</div>
 <div class="row">
   <div class="col s6">
     <div class="your-lists">
@@ -13,14 +20,14 @@
                 <li>
                   <%= list.title %>
                   <p>
-                    <% if current_user.not_started?(list) %>
+                    <% if current_user.started?(list) %>
+                      <%= link_to "Continue", list, class: "btn" %>
+                    <% else %>
                       <%= link_to "Start", startovers_path(startover: {
                            list_id: list.id,
                            user_id: current_user.id,
                            completed: false
                          }), method: :POST, class: 'btn' %>
-                    <% else %>
-                      <%= link_to "Continue", list, class: "btn" %>
                     <% end %>
                   </p>
                 </li>
@@ -28,7 +35,7 @@
           <% end %>
         <% end %>
       <% end %>
-      <p><%= link_to "Archived Lists", '/lists/archived' %></p>
+      <p class='list-links'><%= link_to "Archived Lists", '/lists/archived' %></p>
     </div>
   </div>
   <div class="col s6">
@@ -46,7 +53,6 @@
         <% end %>
       </ul>
     </div>
-    <p><%= link_to "Permissions", permissions_path %></p>
+    <p class='list-links'><%= link_to "Permissions", permissions_path %></p>
   </div>
 </div>
-<%= link_to "New List", new_list_path, class: "btn" %>

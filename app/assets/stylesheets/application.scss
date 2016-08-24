@@ -35,7 +35,6 @@ body {
   }
 
 
-
 .perm-users{
   .red-x {
     a:link {
@@ -85,6 +84,9 @@ a {
     }
   }
 
+.new-list-btn {
+  text-align: center;
+}
   .list-details {
     padding-top: 132px;
   }
@@ -92,6 +94,11 @@ a {
   .list-foot {
     text-align: center;
   }
+
+  .list-links {
+    text-align: center;
+  }
+
 
   #clearance {
     .sign-form {

@@ -67,7 +67,8 @@ class ListsController < ApplicationController
     if list
       if has_permission?(list)
         render locals: {
-        list: list, permission: Permission.new, startover: Startover.new
+          list: list, permission: Permission.new,
+          so: Startover.find_by(user: current_user, list: list, completed: false)
         }
       else
         flash[:alert] = "You do not have permission to view this page."

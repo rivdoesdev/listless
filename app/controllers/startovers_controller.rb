@@ -5,10 +5,10 @@ class StartoversController < ApplicationController
   end
 
   def update
-    startover = Startover.find(params[:id])
+    startover = Startover.find_by(id: params[:id])
     if startover
       startover.update(so_params)
-      redirect_to startovers_path
+      redirect_to startover.list
       flash[:alert] = "Updated"
     else
       redirect_to :back
