@@ -5,21 +5,20 @@
       <%= image_tag @user.avatar.url(:medium) %>
     <% end %>
     <p>Welcome, <%= current_user.name.capitalize %>!</p>
+    <p><% if signed_in? %>
+      <%= link_to "Sign Out", sign_out_path, method: :delete %>
+    <% end %></p>
+
+  <%= link_to "Edit Profile", edit_user_path %>
   </div>
 </div>
 
     <div class="col s12 m6">
       <ul class='user-details'>
-        <li><%= @user.email %></li>
-        <li><%= @user.birthday %></li>
-        <li><%= @user.phone_number %></li>
+        <li>e: <%= @user.email %></li>
+        <li>b: <%= @user.birthday %></li>
+        <li>p: <%= @user.phone_number %></li>
         <li><%= @user.about_me %></li>
       </ul>
-
-      <p><% if signed_in? %>
-        <%= link_to "Sign Out", sign_out_path, method: :delete %>
-      <% end %></p>
-
-    <%= link_to "Edit Profile", edit_user_path %>
   </div>
 </div>
