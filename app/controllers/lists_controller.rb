@@ -34,8 +34,7 @@ class ListsController < ApplicationController
   end
 
   def three_index
-    lists = List.where(difficulty: 1) && List.where(difficulty: 2) &&
-    List.where(difficulty: 3)
+    lists = List.all - List.where(difficulty: 5) && List.where(difficulty: 4) 
     render locals: {
       lists: lists
     }

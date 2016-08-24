@@ -135,3 +135,18 @@ a {
       text-indent: 50px;
     }
   }
+
+.grouped-title {
+  text-align: center;
+}
+.grouped-lists {
+  padding: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  .list-collection {
+    margin-left: 40px;
+  }
+}
+.grouped-btn {
+  text-align: center;
+}
