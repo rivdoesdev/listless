@@ -1,10 +1,12 @@
 <div class="row">
-  <div class="col s6">
+  <div class="col s12 m6">
     <% if @user.avatar %>
-      <%= image_tag @user.avatar.url(:thumb) %>
+      <%= image_tag @user.avatar(:thumb) %>
     <% end %>
     <p>Welcome <%= current_user.name.capitalize %>!</p>
-    <div class="col s6">
+  </div>
+
+    <div class="col s12 m6">
       <%= @user.email %>
       <%= @user.birthday %>
       <%= @user.phone_number %>
@@ -19,3 +21,4 @@
 
 <div class="row">
   <%= @user.about_me %>
+</div>
