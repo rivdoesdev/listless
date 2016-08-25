@@ -1,4 +1,4 @@
-<h2><%= form_title %></h2>
+<h4><%= form_title %></h4>
 
 <% if task.errors.any? %>
     <% task.errors.full_messages.each do |msg| %>
@@ -8,10 +8,11 @@
 
   <%= form_for(task) do |f| %>
     <%=f.text_field :title, placeholder: 'Name your task', class: 'form-control' %>
-
     <%=f.text_area :description, placeholder: 'Any other information you want to include?', class: 'form-control' %>
 
-  <%= f.hidden_field :list_id, value: list_id %>
+    <% unless task.persisted? %>
+    <%= f.hidden_field :parent_task_id, value: params.fetch(:parent_task_id, task.parent_task_id) %>
+    <% end %>
 
     <p><div class ='actions text-center'>
       <%= f.submit class: 'btn' %>
