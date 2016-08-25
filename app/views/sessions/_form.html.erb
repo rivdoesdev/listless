@@ -1,7 +1,7 @@
 <div class='sign-form'>
   <div class='sign-title'>
     <h4>Sign In</h4></div>
-    <%= form_for :session, url: session_path do |form| %>
+    <%= form_for :session do |form| %>
 
       <div class="text-field">
         <%= form.label :email %>
@@ -18,7 +18,7 @@
           <%= form.submit "Submit", class: 'btn' %>
           <%= link_to "Sign Up", sign_up_path, class: 'btn' %>
           <div class='other-links'>
-          <%= link_to "Forgot Password?", new_password_path %>
+
         </div>
         </p>
       </div>

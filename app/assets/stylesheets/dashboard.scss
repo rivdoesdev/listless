@@ -15,6 +15,7 @@
   height: 100%;
   width: 100%;
   background: rgba(20, 20, 20, 0.3);
+  text-shadow: 0px 0px 3px rgba(25, 25, 25, 0.2);
   .dash-list a {
     color: white;
   }
@@ -33,6 +34,7 @@
 }
 .dash-foot a {
   color: white;
+  text-shadow: 0px 0px 3px rgba(25, 25, 25, 0.2);
   &:hover {
     transition: all 0.2s ease;
     color: lightblue;

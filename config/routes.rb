@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
 
+  get :sign_up, controller: 'clearance/users', action: 'new'
+  get :sign_in, to: "clearance/sessions#new"
+  post :sign_in, to: "clearance/sessions#create"
+
+  delete :sign_out, controller: 'clearance/sessions', action: 'destroy'
+
+  get :password, controller: 'clearance/passwords', :only => [:new, :create]
+
   resources :startovers
+
   get '/about', to: 'dashboard#about'
   get '/lists/public', to: 'lists#public_index'
   get '/lists/public/:id', to: 'lists#public_show'
@@ -23,4 +32,5 @@ Rails.application.routes.draw do
 
   get :search, controller: 'search', as: 'search'
   root 'dashboard#index', as: 'root'
+
 end
