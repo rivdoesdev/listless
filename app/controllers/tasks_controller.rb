@@ -19,19 +19,21 @@ class TasksController < ApplicationController
 
   def create
     task = Task.new(task_params)
-    task.list_id = task.parent.list_id
+    if params[:task][:parent_task_id].present?
+      task.list = Task.find(params[:task][:parent_task_id]).list
+    end
     if task.save
-      redirect_to task.parent
+      redirect_to task.list
     else
       render :new, locals: {
-        task: task,
-
+        task: task
       }
     end
   end
 
   def edit
     render locals: {
+      list_id: params[:list_id],
       task: Task.find(params[:id])
     }
   end
@@ -40,7 +42,7 @@ class TasksController < ApplicationController
     task = Task.find(params[:id])
     if task
       task.update(task_params)
-      redirect_to task
+      redirect_to task.list
       flash[:alert] = "Updated"
     else
       render :edit, locals: {

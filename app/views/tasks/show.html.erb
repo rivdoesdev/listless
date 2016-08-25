@@ -1,16 +1,19 @@
 
 <h4><%= task.title %></h4>
-  <%= task.description %>
+<p><%= task.description %></p>
+<p><%= link_to "Edit", edit_task_path(task, list_id: task.list.id), class: "btn" %></p>
   <p><% if task.children %>
-  <% task.children.each do |child| %>
-  <%= child.title %><%=link_to " (e)", edit_task_path(child) %>
-  <p><%= child.description %></p>
-  <% end %>
+    <% task.children.each do |child| %>
+    <p class='collection'>
+      <%= child.title %>
+      <%=link_to " (e)", edit_task_path(child) %>
+      <br><%= child.description %></br></p>
+    <% end %>
   <% end %></p>
 
   <p>
-    <%= link_to "New Task", new_task_path(parent_task_id: params[:id]), class: "btn" %>
-    <%= link_to "Edit", edit_task_path(task, list_id: task.list.id), class: "btn" %>
-    <%= link_to "Archive", task, class: "btn btn-danger", method: :delete, data: { confirm: "Are you sure you want to delete this task?"} %>
+    <%= link_to "Add Task", new_task_path(parent_task_id: params[:id]), class: "btn" %>
   </p>
-<!-- Update this button to archive instead of delete -->
+  <p>
+    <%= link_to "Back to List", task.list, class: 'btn' %>
+  </p>

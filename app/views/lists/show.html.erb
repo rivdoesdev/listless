@@ -8,7 +8,7 @@
       <div class="list-col col s12 m6">
         <div class='list-tasks'><h4><%= list.title %></h4>
           <ol>
-            <% list.tasks.each do |task| %>
+            <% list.tasks.where(parent_task_id: nil).each do |task| %>
             <li>
               <%= link_to task.title, task %>
               <p><%= task.description %>

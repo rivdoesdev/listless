@@ -10,8 +10,14 @@
     <%=f.text_field :title, placeholder: 'Name your task', class: 'form-control' %>
     <%=f.text_area :description, placeholder: 'Any other information you want to include?', class: 'form-control' %>
 
+    <% if params[:list_id] %>
+      <%= f.hidden_field :list_id, value: params[:list_id] %>
+    <% else %>
+      <%= f.hidden_field :list_id %>
+    <% end %>
+
     <% unless task.persisted? %>
-    <%= f.hidden_field :parent_task_id, value: params.fetch(:parent_task_id, task.parent_task_id) %>
+      <%= f.hidden_field :parent_task_id, value: params.fetch(:parent_task_id, task.parent_task_id) %>
     <% end %>
 
     <p><div class ='actions text-center'>
