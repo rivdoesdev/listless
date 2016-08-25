@@ -46,7 +46,11 @@ class TasksController < ApplicationController
     task = Task.find(params[:id])
     if task
       task.update(task_params)
-      redirect_to task.list
+      if task.parent_task_id.nil?
+        redirect_to task.list
+      else
+        redirect_to task.parent
+      end
       flash[:alert] = "Updated"
     else
       render :edit, locals: {
