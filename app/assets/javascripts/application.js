@@ -27,7 +27,7 @@ var boxy = function() {
 };
 
 $(document).ready(boxy);
-$(document).on("turbolinks:load", boxy)
+$(document).on("turbolinks:load", boxy);
 
 $(document).ready(function(){
     $('.tooltipped').tooltip({delay: 50});

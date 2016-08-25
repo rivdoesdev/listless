@@ -12,7 +12,7 @@ User.create!(name: "Ahkeem", email: "ahkeem@example.com", password: "password")
 User.create!(name: "Dane", email: "dane@example.com", password: "password")
 User.create!(name: "Justin", email: "justin@example.com", password: "password")
 
-List.create!(title: "Clean the House", difficulty: "3/5", energy: "4/5", due_date: "09/01/2016", reward: "Netflix", completed: false, user_id: 1, public: true)
+List.create!(title: "Clean the House", difficulty: "3/5", energy: "4/5", due_date: "09/01/2016", reward: "Netflix", user_id: 1, public: true)
 Task.create!(title: "Clean the floors", description: "Sweep dirt into piles, vacuum the piles, Swiffer tiled areas.", position: 1, list_id: 1)
 Task.create!(title: "Clean bathrooms", description: "Wipe off mirrors, scrub toilets, clean bathroom", position: 2, list_id: 1)
 Task.create!(title: "Clean kitchen", description: "Wipe off counters, put appliances away.", position: 3, list_id: 1)

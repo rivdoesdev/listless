@@ -19,6 +19,23 @@ class ListsController < ApplicationController
     }
   end
 
+  def difficulty_index
+    if list.find(params[:id]) == "/fiveoutoffive"
+      lists = List.all
+    elsif list.find(params[:id]) == "/fouroutoffive"
+      lists = List.all - List.where(difficulty: 5)
+    elsif list.find(params[:id]) == "/threeoutoffive"
+      lists = List.all - List.where(difficulty: 5) && List.where(difficulty: 4)
+    elsif list.find(params[:id]) == "/twooutoffive"
+      lists = List.where(difficulty: 1) && List.where(difficulty: 2)
+    else
+      lists = List.where(difficulty: 1)
+    end
+    render locals: {
+      lists: lists
+    }
+  end
+
   def one_index
     lists = List.where(difficulty: 1)
     render locals: {
@@ -34,7 +51,7 @@ class ListsController < ApplicationController
   end
 
   def three_index
-    lists = List.all - List.where(difficulty: 5) && List.where(difficulty: 4) 
+    lists = List.all - List.where(difficulty: 5) && List.where(difficulty: 4)
     render locals: {
       lists: lists
     }

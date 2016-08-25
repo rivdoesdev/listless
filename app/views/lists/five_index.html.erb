@@ -7,6 +7,7 @@
     <p>You don't have any lists ranked 5/5 or lower :(</p>
   <% end %>
 
+<% unless lists.empty? %>
   <ul class='collection'>
     <p class='list-collection'>5
     <% lists.each do |list| %>
@@ -19,6 +20,7 @@
       <% end %>
     <% end %></p>
   </ul>
+<% end %>
 
   <ul class='collection'>
     <p class='list-collection'>4
