@@ -3,7 +3,7 @@
   <%= task.description %>
   <p><% if task.children %>
   <% task.children.each do |child| %>
-  <%= child.title %><%=link_to "edit", edit_task_path(child) %>
+  <%= child.title %><%=link_to " (e)", edit_task_path(child) %>
   <p><%= child.description %></p>
   <% end %>
   <% end %></p>
