@@ -3,20 +3,15 @@
   <p><%= link_to "Undo", flop_list_path(list), class: "btn" %></p>
 <% else %>
 
-  <div class="list-show">
     <div class="row">
       <div class="list-col col s12 m6">
-        <div class='list-tasks'><h4><%= list.title %></h4>
+        <h4><%= list.title %></h4>
           <ol>
             <% list.tasks.where(parent_task_id: nil).each do |task| %>
-            <li>
-              <%= link_to task.title, task %>
-              <p><%= task.description %>
-            </li>
+              <%= react_component("Task", task: task) %>
             <% end %>
           </ol>
           <%= link_to "Add Task", new_task_path(list_id: list.id), class: "btn" %>
-          <!-- make this a react card -->
         </div>
       </div>
 
