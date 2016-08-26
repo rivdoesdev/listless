@@ -25,19 +25,20 @@ var Task = React.createClass({
           <div className="list-tasks">
             <li key={this.props.task.id} className="collection-item">
               <p><strong>{this.props.task.title} </strong>
-              <a a className="" href={"/tasks/" + this.props.task.id + "/edit"}>
+              <a className="" href={"/tasks/" + this.props.task.id + "/edit"}>
               <i className="tiny material-icons"> mode_edit</i></a>
               </p>
               <p>{this.props.task.description}</p>
-              <ul>
+              <ol>
                 {this.props.task.children.map(function (child) {
                   return (<li key={child.id}>{child.title}
-                    <a onClick={child.viewDescription}>
-                      <i className="material-icons right">expand_less</i>
-                    </a>
                   </li>);
+
                 })}
-              </ul>
+              </ol>
+
+            <a className="" href={"/tasks/new?parent_task_id=" + this.props.task.id}>
+            <i className="tiny material-icons"> add</i></a>
             </li>
           </div>
         </div>

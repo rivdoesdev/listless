@@ -23,11 +23,7 @@ class TasksController < ApplicationController
       task.list = Task.find(params[:task][:parent_task_id]).list
     end
     if task.save
-      if task.parent_task_id.nil?
         redirect_to task.list
-      else
-        redirect_to task.parent
-      end
     else
       render :new, locals: {
         task: task
