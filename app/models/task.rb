@@ -6,4 +6,8 @@ class Task < ApplicationRecord
   validates :title, length: { minimum: 2, maximum: 200 }
   validates :completed, default: false, inclusion: { in: [true, false] }
   validates :list_id, presence: true
+
+  def as_json(_ = nil)
+    super(include: :children)
+  end
 end
