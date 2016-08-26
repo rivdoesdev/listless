@@ -45,7 +45,7 @@ body {
 
 .perm-users{
   .red-x {
-    a:link {
+    a {
      color: red;
     }
   }
@@ -96,7 +96,7 @@ a {
   text-align: center;
 }
   .list-details {
-    padding-top: 132px;
+    padding: 1em;
   }
 
   .list-foot {

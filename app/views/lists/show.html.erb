@@ -16,16 +16,9 @@
       </div>
 
 
-
+      <div class="row">
         <div class="list-col col s12 m6">
-          <div class="list-details">
-          <ul>
-            <li>Difficulty level: <%= list.difficulty %>/5</li>
-            <li>Energy level: <%= list.energy %>/5</li>
-            <li>Due date: <%= list.due_date %></li>
-            <li>Reward: <%= list.reward %></li>
-          </ul>
-        </div>
+          <%= react_component("Stat", list: list) %>
         <% if so.present? %>
           <%= link_to "Complete", startover_path(so, startover: {
              list_id: list.id,
@@ -62,6 +55,7 @@
       </div>
     </div>
   </div>
+</div>
 
       <div class="list-foot col s12">
         <%= link_to "Update", edit_list_path(list), class: "btn" %>
