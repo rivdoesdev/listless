@@ -59,7 +59,7 @@ class TasksController < ApplicationController
   def destroy
     if Task.exists?(params[:id])
       Task.destroy(params[:id])
-      flash[:notice] = "Task removed"
+      flash[:notice] = "Task deleted"
       redirect_to task.list
     else
       flash[:alert] = "Task was not destroyed due to errors."
