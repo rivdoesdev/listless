@@ -17,7 +17,7 @@ var ChildStrikethrough = React.createClass({
   render: function() {
     return (
       <li>
-        <h6 className={this.state.isStrikeThrough} onClick={this.onHandleClick}>{this.props.child.title}</h6>
+        <span className={this.state.isStrikeThrough} onClick={this.onHandleClick}>{this.props.child.title}</span>
         <a className="" href={"/tasks/new?parent_task_id="}>
         <i className="tiny material-icons">clear</i></a>
       </li>
