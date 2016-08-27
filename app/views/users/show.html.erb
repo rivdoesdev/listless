@@ -2,16 +2,22 @@
   <div class="col s12 m6">
     <div class='welcome-user'>
       <div class='user-avatar'>
-      <%= image_tag @user.avatar.url(:medium) %>
-  </div>
-    <p>Welcome, <%= current_user.name.capitalize %>!</p>
-    <p><% if signed_in? %>
-      <%= link_to "Sign Out", sign_out_path, method: :delete %>
-    <% end %></p>
+        <%= image_tag @user.avatar.url(:medium) %>
+      </div>
+      <% if user == current_user %>
+        <p>Welcome, <%= current_user.name.capitalize %>!</p>
+        <p>
+          <% if signed_in? %>
+            <%= link_to "Sign Out", sign_out_path, method: :delete %>
+          <% end %>
+        </p>
+        <%= link_to "Edit Profile", edit_user_path %>
 
-  <%= link_to "Edit Profile", edit_user_path %>
+      <% else %>
+      <p><%= user.name %></p>
+      <% end %>
+    </div>
   </div>
-</div>
 
     <div class="col s12 m6">
       <div class="card">
