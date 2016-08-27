@@ -1,9 +1,9 @@
 <div class="row">
   <div class="col s12 m6">
     <div class='welcome-user'>
-    <% if @user.avatar %>
+      <div class='user-avatar'>
       <%= image_tag @user.avatar.url(:medium) %>
-    <% end %>
+  </div>
     <p>Welcome, <%= current_user.name.capitalize %>!</p>
     <p><% if signed_in? %>
       <%= link_to "Sign Out", sign_out_path, method: :delete %>
@@ -14,11 +14,13 @@
 </div>
 
     <div class="col s12 m6">
+      <div class="card">
       <ul class='user-details'>
         <li>e: <%= @user.email %></li>
         <li>b: <%= @user.birthday %></li>
         <li>p: <%= @user.phone_number %></li>
         <li><%= @user.about_me %></li>
       </ul>
+    </div>
   </div>
 </div>

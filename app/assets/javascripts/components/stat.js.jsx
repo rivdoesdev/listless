@@ -13,6 +13,7 @@ var Stat = React.createClass({
           </li>
         </ul>
       </div>
+      
     </div>
     );
   }

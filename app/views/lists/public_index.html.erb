@@ -1,7 +1,13 @@
-<h2>Public Lists</h2>
-<% lists.each do |list| %>
-  <li class='collection-item perm-users'>
-    <%= link_to list.title, "public/#{list.id}" %>
+<div class='list-head'>
+  <h4>Public Lists</h4>
+</div>
+
+<div class='perm-form'>
+<ol class='collection'>
+  <li class='collection-item'>
+    <% lists.each do |list| %>
+      <%= link_to list.title, "public/#{list.id}" %>
+    <% end %>
   </li>
-<% end %>
-</ul>
+</ol>
+<div>

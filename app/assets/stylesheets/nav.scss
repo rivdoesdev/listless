@@ -1,0 +1,36 @@
+.main-header {
+  nav a {
+    color: #28666E;
+  }
+
+  .header-title {
+   margin-top: 10px;
+  }
+  .app-title {
+    min-width: 150px;
+  }
+  .search-box{
+    margin: 20px;
+    #searchbar {
+      max-height: 20px;
+      border-radius: 5px;
+      padding-left: 2rem;
+      min-width: 80px;
+    }
+    .material-icons {
+      margin-left: 15px;
+      font-size: 180%;
+      position: relative;
+      top: -1px;
+      color: #28666E;
+    }
+  }
+    .search-icon {
+      margin: auto;
+      width: 50%;
+    }
+    .input-field {
+      width: 50%;
+      display: inline-flex;
+    }
+  }

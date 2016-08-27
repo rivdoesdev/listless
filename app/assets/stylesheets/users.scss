@@ -1,3 +1,29 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.user-details {
+  line-height: 30px;
+  margin-top: 3em;
+  padding: 2em;
+}
+
+.welcome-user {
+  text-align: center;
+  margin-top: 3em;
+  .user-avatar img {
+    border-radius: 50%;
+  }
+}
+
+#clearance {
+  .sign-form {
+    padding-left: 15px;
+    padding-right: 15px;
+    .sign-title {
+      text-align: center;
+    }
+    .sign-submit {
+      text-align: center;
+    }
+    .other-links {
+      text-align: center;
+    }
+  }
+}
