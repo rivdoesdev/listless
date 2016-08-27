@@ -1,3 +1,4 @@
+<div class='list-index'>
 <div class='row'>
   <div class='col s12'>
     <div class='new-list-btn'>
@@ -8,16 +9,19 @@
 <div class="row">
   <div class="col s6">
     <div class="your-lists">
-      <h5>Your Lists: </h5>
+      <h5 class='title'>Your Lists: </h5>
+      <div class='card'>
       <% lists.each do |list| %>
         <% if lists.where(archived: false).count.zero? %>
-          You don't have any lists yet!
+          <div class='empty'>You don't have any lists yet!</div>
           <% end %>
+        </div>
 
+        <div class='card'>
+          <!-- has blank card before lists -->
           <% unless list.archived? %>
             <% if list.user == current_user %>
-              <ul class='collection'>
-                <li>
+                <div class='unempty'>
                   <%= list.title %>
                   <p>
                     <% if current_user.started?(list) %>
@@ -30,29 +34,30 @@
                          }), method: :POST, class: 'btn' %>
                     <% end %>
                   </p>
-                </li>
-              </ul>
+                </div>
           <% end %>
         <% end %>
       <% end %>
+    </div>
       <p class='list-links'><%= link_to "Archived Lists", '/lists/archived' %></p>
     </div>
   </div>
   <div class="col s6">
     <div class="shared-lists">
-      <h5>Lists You Have Access To:</h5>
-      <ul class='collection'>
+      <h5 class='title'>Lists You Have Access To:</h5>
+      <div class="card">
         <% lists.each do |list| %>
-          <% if you_have_access_to(list) == 0 %>
-            You do not have access to any other users' lists.
+          <% if you_have_access_to(list) == false %>
+            <div class='empty'>You do not have access to any other users' lists.</div>
+          <!-- fix this bug - duplicates for each list -->
             <% elsif you_have_access_to(list) %>
-            <li class='collection-item perm-users'>
+            <li class='unempty'>
               <%= link_to list.title, list %> (<%= list.user.name.capitalize %>)
             </li>
           <% end %>
         <% end %>
-      </ul>
+      </div>
+      <p class='list-links'><%= link_to "Permissions", permissions_path %></p>
     </div>
-    <p class='list-links'><%= link_to "Permissions", permissions_path %></p>
   </div>
 </div>

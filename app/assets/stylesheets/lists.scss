@@ -2,6 +2,42 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.list-index {
+  padding-top: 2em;
+  .your-lists {
+    .title {
+      text-align: center;
+    }
+    .card {
+      padding: 1em;
+      margin-left: 2em;
+      .empty {
+        text-align: center;
+        padding: 1em;
+      }
+      .unempty {
+        margin-left: 3em;
+      }
+    }
+  }
+  .shared-lists {
+    .title {
+      text-align: center;
+    }
+    .card {
+      padding: 1em;
+      .empty {
+        text-align: center;
+        padding: 1em;
+      }
+      .unempty {
+        margin-left: 3em;
+      }
+    }
+  }
+}
+
+
 .list-form {
   padding: 2em;
 }
@@ -17,3 +53,39 @@
 .list-show {
   padding: 2em;
 }
+
+.list-head {
+  text-align: center;
+}
+
+.stats-card {
+  margin-top: 14px;
+
+}
+
+.new-list-btn {
+  text-align: center;
+}
+  .list-details {
+    padding: 1em;
+  }
+
+  .list-foot {
+    text-align: center;
+  }
+
+  .list-links {
+    text-align: center;
+  }
+
+  .public-index {
+    .card {
+      margin-left: 2em;
+      .public-card {
+        padding: 2em;
+        .item {
+          margin-left: 3em;
+        }
+      }
+    }
+  }
