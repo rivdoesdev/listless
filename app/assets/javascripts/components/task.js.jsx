@@ -15,7 +15,6 @@ var Task = React.createClass({
                 {this.props.task.children.map(function (child) {
                   return (<ChildStrikethrough key={child.id}
                                                   child={child}
-
                   />);
                 })}
               </ol>

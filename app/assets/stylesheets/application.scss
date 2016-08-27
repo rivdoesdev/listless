@@ -43,13 +43,21 @@ body {
   }
 
 
-.perm-users{
+.perm-users {
   .red-x {
     a {
      color: red;
     }
   }
 }
+
+.card {
+  margin-right: 2.5em;
+.perm-form {
+  padding: 2.5em;
+}
+}
+
 
 a {
   color: #59C3C3;
@@ -91,6 +99,15 @@ a {
       display: inline-flex;
     }
   }
+
+.list-head {
+  text-align: center;
+}
+
+.stats-card {
+  margin-top: 14px;
+
+}
 
 .new-list-btn {
   text-align: center;
