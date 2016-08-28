@@ -1,30 +1,45 @@
-<h4>Not feeling great, but need something to do? </h4>
-<p>These are the lists you marked as having a difficulty level of 2/5 and 1/5. See how far you can get. </p>
+<div class='group-index'>
+  <h4>Not feeling great, but need something to do? </h4>
+  <p>These are the lists you marked as having a difficulty level of 2/5 and 1/5. See how far you can get. </p>
 
-<% if lists.where(archived: false).count.zero? %>
-  <p>You don't have any lists ranked 2/5 or lower :(</p>
-<% end %>
+  <div class='grouped-lists'>
+    <% if lists.where(archived: false).count.zero? %>
+      <p>You don't have any lists ranked 2/5 or lower :(</p>
+    <% else %>
 
-<p>2
-<% lists.each do |list| %>
-  <% unless list.archived? %>
-    <% if list.user == current_user %>
-      <% if list.difficulty == 2 %>
-      <li> <%= link_to list.title, list %> </li>
+    <% unless lists.where(difficulty: 2).empty? %>
+      <ul class='collection'>
+        <p class='list-collection'>2
+        <% lists.each do |list| %>
+          <% unless list.archived? %>
+            <% if list.user == current_user %>
+              <% if list.difficulty == 2 %>
+              <li class='list-collection'> <%= link_to list.title, list %> </li>
+              <% end %>
+            <% end %>
+          <% end %>
+        <% end %></p>
+      </ul>
       <% end %>
-    <% end %>
-  <% end %>
-<% end %></p>
 
-<p>1
-<% lists.each do |list| %>
-  <% unless list.archived? %>
-    <% if list.user == current_user %>
-      <% if list.difficulty == 1 %>
-      <li> <%= link_to list.title, list %> </li>
+      <% unless lists.where(difficulty: 1).empty? %>
+        <ul class='collection'>
+          <p class='list-collection'>1
+          <% lists.each do |list| %>
+            <% unless list.archived? %>
+              <% if list.user == current_user %>
+                <% if list.difficulty == 1 %>
+                <li class='list-collection'> <%= link_to list.title, list %> </li>
+                <% end %>
+              <% end %>
+            <% end %>
+          <% end %></p>
+        </ul>
+        <% end %>
       <% end %>
-    <% end %>
-  <% end %>
-<% end %></p>
 
-<%= link_to "All Lists", lists_path, class: "btn" %>
+      <div class='grouped-btn'>
+      <%= link_to "All Lists", lists_path, class: "btn" %>
+      </div>
+    </div>
+  </div>

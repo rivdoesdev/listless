@@ -37,6 +37,9 @@
   }
 }
 
+p {
+  margin: 0;
+}
 
 .list-form {
   padding: 2em;
@@ -87,5 +90,12 @@
           margin-left: 3em;
         }
       }
+    }
+  }
+
+  .public-show {
+    .card {
+      padding: 1.5em;
+
     }
   }

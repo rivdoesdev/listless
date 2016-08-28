@@ -65,18 +65,21 @@ a {
 
 
 
-
-.grouped-title {
-  text-align: center;
-}
-.grouped-lists {
-  padding: 20px;
-  margin-left: 20px;
-  margin-right: 20px;
-  .list-collection {
-    margin-left: 40px;
+.group-index {
+  padding: 2em;
+  .grouped-title {
+    text-align: center;
   }
-}
-.grouped-btn {
-  text-align: center;
+  .grouped-lists {
+    padding: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    .list-collection {
+      margin-left: 40px;
+    }
+  }
+  .grouped-btn {
+    margin-top: 20px;
+    text-align: center;
+  }
 }

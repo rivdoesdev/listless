@@ -1,22 +1,38 @@
-<div class="list-show">
+<div class='list-head'>
+<h4><%= list.title %></h4>
+</div>
+
   <div class="row">
     <div class="list-col col s12 m6">
-      <div class='list-tasks'><h4><%= list.title %></h4>
-        <ol>
-          <% list.tasks.each do |task| %>
-          <li>
-            <%= task.title %>
-          </li>
-          <% end %>
-        </ol>
+      <div class='new-list-btn'>
+        <%= link_to "Add Task", new_task_path(list_id: list.id), class: "btn" %>
       </div>
+
+      <ol>
+      <% list.tasks.where(parent_task_id: nil).each do |task| %>
+
+        <li><%= task.title %>
+        <p><%= task.description %></p>
+        <% if task.children %>
+          <% task.children.each do |child| %>
+            <p><ul class="browser-default"><li><%= child.title %></li></ul></p>
+            <% end %>
+            <br>
+          <% end %>
+        <% end %>
+      </li>
+      </ol>
     </div>
 
-    <div class="list-col col s12 m6">
-      <ul>
-        <li>Difficulty level: <%= list.difficulty %>/5</li>
-        <li>Energy level: <%= list.energy %>/5</li>
-        <li>Due date: <%= list.due_date %></li>
-        <li>Reward: <%= list.reward %></li>
-      </ul>
-    </div>
+    <div class='row'>
+      <div class="list-col col s12 m6">
+          <div class='stats-card'>
+            <%= react_component("Stat", list: list) %>
+          </div>
+
+        <br>
+
+
+</div>
+</div>
+</div>
