@@ -18,11 +18,11 @@
       <%= f.range_field(:difficulty, in: 1..5) %>
 
       <label for="list_energy">Energy Level </label>
-      <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="On a scale from 1-5, how mush energy is this list going to take?">?</a>
+      <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="On a scale from 1-5, how much energy is this list going to take?">?</a>
       <%= f.range_field(:energy, in: 1..5) %>
 
       <label for="due_date">Due Date </label>
-      <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="If you need to get this list done by a certain date, set a due date for yourself.">?</a>
+      <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="If you need to get this list done by a certain date, we'll text you a reminder that morning.">?</a>
       <%= f.date_field :due_date, class: 'datepicker' %>
 
       <label for="reward">Reward </label>

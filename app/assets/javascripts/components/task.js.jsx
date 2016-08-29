@@ -19,7 +19,7 @@ var Task = React.createClass({
                 })}
               </ol>
               <a className="" href={"/tasks/new?parent_task_id=" + this.props.task.id}>
-              <i className="tiny material-icons">add</i></a>
+              <i className="tiny material-icons">add</i>Add</a>
             </li>
           </div>
         </div>
