@@ -1,17 +1,15 @@
-<div class='list-head'>
-<h4><%= list.title %></h4>
-</div>
+<div class='public-show'>
+  <div class='list-head'>
+    <h4><%= list.title %></h4>
+  </div>
 
   <div class="row">
     <div class="list-col col s12 m6">
-      <div class='new-list-btn'>
-        <%= link_to "Add Task", new_task_path(list_id: list.id), class: "btn" %>
-      </div>
 
-      <ol>
+      <ol class='card'>
       <% list.tasks.where(parent_task_id: nil).each do |task| %>
 
-        <li><%= task.title %>
+        <li class='item'><%= task.title %>
         <p><%= task.description %></p>
         <% if task.children %>
           <% task.children.each do |child| %>
@@ -32,4 +30,5 @@
         <br>
     </div>
   </div>
+</div>
 </div>

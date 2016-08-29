@@ -94,8 +94,13 @@ p {
   }
 
   .public-show {
+    padding-left: 2em;
     .card {
       padding: 1.5em;
+      margin-top: 14px;
+      .item {
+        margin-left: 2em;
 
+      }
     }
   }

@@ -5,11 +5,9 @@
 
   <div class='card'>
     <ol class='public-card'>
-      <li class='item'>
-        <% lists.each do |list| %>
-          <%= link_to list.title, "public/#{list.id}" %>
-        <% end %>
-      </li>
+      <% lists.each do |list| %>
+        <li class='item'><%= link_to list.title, "public/#{list.id}" %></li>
+      <% end %>
     </ol>
   </div>
 </div>
