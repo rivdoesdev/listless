@@ -5,9 +5,9 @@ class ListsController < ApplicationController
     if params[:search]
       search_params
     else
-      lists = List.all
       render locals: {
-        lists: lists,
+        lists: current_user.lists,
+        permitted_lists: current_user.permitted_lists
       }
     end
   end

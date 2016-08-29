@@ -7,57 +7,55 @@
   </div>
 </div>
 <div class="row">
-  <div class="col s6">
+  <div class="col s12 m6">
     <div class="your-lists">
       <h5 class='title'>Your Lists: </h5>
-      <div class='card'>
       <% lists.each do |list| %>
         <% if lists.where(archived: false).count.zero? %>
-          <div class='empty'>You don't have any lists yet!</div>
-          <% end %>
-        </div>
+          <div class='card'>
+            <div class='empty'>You don't have any lists yet!</div>
+          </div>
+        <% end %>
 
-        <div class='card'>
-          <!-- has blank card before lists -->
           <% unless list.archived? %>
-            <% if list.user == current_user %>
-                <div class='unempty'>
-                  <%= list.title %>
-                  <p>
-                    <% if current_user.started?(list) %>
-                      <%= link_to "Continue", list, class: "btn" %>
-                    <% else %>
-                      <%= link_to "Start", startovers_path(startover: {
-                           list_id: list.id,
-                           user_id: current_user.id,
-                           completed: false
-                         }), method: :POST, class: 'btn' %>
-                    <% end %>
-                  </p>
-                </div>
-          <% end %>
+            <div class='card'>
+              <div class='unempty'>
+                <%= list.title %>
+                <p>
+                  <% if current_user.started?(list) %>
+                    <%= link_to "Continue", list, class: "btn" %>
+                  <% else %>
+                    <%= link_to "Start", startovers_path(startover: {
+                         list_id: list.id,
+                         user_id: current_user.id,
+                         completed: false
+                       }), method: :POST, class: 'btn' %>
+                  <% end %>
+                </p>
+              </div>
+            </div>
         <% end %>
       <% end %>
     </div>
-      <p class='list-links'><%= link_to "Archived Lists", '/lists/archived' %></p>
-    </div>
+    <p class='list-links'><%= link_to "Archived Lists", '/lists/archived' %></p>
   </div>
-  <div class="col s6">
-    <div class="shared-lists">
-      <h5 class='title'>Lists You Have Access To:</h5>
-      <div class="card">
-        <% lists.each do |list| %>
-          <% if you_have_access_to(list) == false %>
-            <div class='empty'>You do not have access to any other users' lists.</div>
-          <!-- fix this bug - duplicates for each list -->
-            <% elsif you_have_access_to(list) %>
+
+  <div class="row">
+    <div class="col s12 m6">
+      <div class="shared-lists">
+        <h5 class='title'>Lists You Have Access To:</h5>
+        <div class="card">
+          <% permitted_lists.each do |list| %>
             <li class='unempty'>
               <%= link_to list.title, list %> (<%= list.user.name.capitalize %>)
             </li>
           <% end %>
-        <% end %>
+          <% if permitted_lists.empty? %>
+            <p class='empty'> You do not have access to any other lists </p>
+          <% end %>
+        </div>
+        <p class='list-links'><%= link_to "Permissions", permissions_path %></p>
       </div>
-      <p class='list-links'><%= link_to "Permissions", permissions_path %></p>
     </div>
   </div>
 </div>
