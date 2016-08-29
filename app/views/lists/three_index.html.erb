@@ -1,6 +1,8 @@
 <div class='group-index'>
-  <h4>Congratulations, you're feeling like you can scrape by! </h4>
-  <p>These lists are marked with 3/5 or less on the difficulty scale. Any of these lists should match up with your energy today. </p>
+  <div class='grouped-title'>
+    <h4>Congratulations, you're feeling like you can scrape by! </h4>
+    <p>These lists are marked with 3/5 or less on the difficulty scale. Any of these lists should match up with your energy today. </p>
+  </div>
 
   <div class='grouped-lists'>
   <% if lists.where(archived: false).count.zero? %>
@@ -20,7 +22,7 @@
           <% end %>
         <% end %></p>
       </ul>
-      <% end %>
+    <% end %>
 
     <% unless lists.where(difficulty: 2).empty? %>
       <ul class='collection'>
