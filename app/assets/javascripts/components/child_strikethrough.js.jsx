@@ -2,7 +2,8 @@ var ChildStrikethrough = React.createClass({
 
   getInitialState: function () {
     return {
-       className: "isStrikeThrough"
+       className: "isStrikeThrough",
+       show: true
     };
   },
 
@@ -20,19 +21,23 @@ var ChildStrikethrough = React.createClass({
       method: "DELETE",
       url: "/tasks/" + taskID,
       success: function () {
-        // I run after the delete request is finished.
-      }
+        this.setState({show: false})
+      }.bind(this)
     });
   },
 
   render: function() {
-    return (
-      <li>
-        <span className={this.state.isStrikeThrough} onClick={this.onHandleClick}>{this.props.child.title}</span>
-
+    if (this.state.show === true) {
+      return (
+        <li>
+          <span className={this.state.isStrikeThrough} onClick={this.onHandleClick}>{this.props.child.title}</span>
           <a className="react-clear" onClick={this.handleClear.bind(this, this.props.child.id)}>
-          <i className="tiny material-icons">clear</i></a>
-      </li>
-    )
+            <i className="tiny material-icons">clear</i>
+          </a>
+        </li>
+      )
+    } else {
+      return (<div/>);
+    }
   }
 });

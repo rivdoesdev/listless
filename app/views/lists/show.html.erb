@@ -1,6 +1,8 @@
-<% if list.archived? %>
+<div class='list-show'>
+  <% if list.archived? %>
   This list has been archived.
   <p><%= link_to "Undo", flop_list_path(list), class: "btn" %></p>
+</div>
 <% else %>
 
   <div class='list-head'>

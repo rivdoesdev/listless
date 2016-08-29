@@ -1,11 +1,11 @@
 <div class='list-index'>
-<div class='row'>
-  <div class='col s12'>
-    <div class='new-list-btn'>
-      <%= link_to "New List", new_list_path, class: "btn" %>
+  <div class='row'>
+    <div class='col s12'>
+      <div class='new-list-btn'>
+        <%= link_to "New List", new_list_path, class: "btn" %>
+      </div>
     </div>
   </div>
-</div>
 <div class="row">
   <div class="col s12 m6">
     <div class="your-lists">
@@ -18,7 +18,7 @@
         <% end %>
 
           <% unless list.archived? %>
-            
+            <div class='card'>
               <div class='unempty'>
                 <%= list.title %>
                 <p>
@@ -44,16 +44,20 @@
     <div class="col s12 m6">
       <div class="shared-lists">
         <h5 class='title'>Lists You Have Access To:</h5>
-        <div class="card">
+
           <% permitted_lists.each do |list| %>
+          <div class='card'>
             <li class='unempty'>
               <%= link_to list.title, list %> (<%= list.user.name.capitalize %>)
             </li>
           <% end %>
           <% if permitted_lists.empty? %>
-            <p class='empty'> You do not have access to any other lists </p>
-          <% end %>
+          <div class='card'>
+            <div class='empty'> You do not have access to any other lists </p>
+          </div>
+
         </div>
+        <% end %>
         <p class='list-links'><%= link_to "Permissions", permissions_path %></p>
       </div>
     </div>
