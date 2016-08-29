@@ -66,4 +66,4 @@ Task.create!(title: "Book an appointment", description: "Have availability ready
   Task.create!(title: "Look on calendar for days/times that work best", position: 1, list_id: 2, parent_task_id: 10)
   Task.create!(title: "Call barber shop", position: 2, list_id: 2, parent_task_id: 10)
   Task.create!(title: "Write down appointment", position: 3, list_id: 2, parent_task_id: 10)
-  Task.create!(title: "Update due date for reminder", position: 4, list_id: 2, parent_task_id: 10)
+  Task.create!(id: 14, title: "Update due date for reminder", position: 4, list_id: 2, parent_task_id: 10)

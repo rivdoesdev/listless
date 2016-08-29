@@ -9,7 +9,7 @@ class List < ApplicationRecord
   validates_inclusion_of :energy, :in => 1..5
   validates :user_id, presence: true
 
-  after_create :reminder
+  # after_create :reminder
 
   def users_without_permission
     User.all - self.allowed_users
@@ -24,19 +24,19 @@ class List < ApplicationRecord
     so && so.completed?
   end
 
-  def reminder
-    twilio_number = ENV['TWILIO_NUMBER']
-    client = Twilio::REST::Client.new ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN']
-    reminder = "Hi #{self.user.name}! Just a reminder that your list #{self.title} is due today."
-    message = client.account.messages.create(
-      :from => twilio_number,
-      :to => self.phone_number,
-      :body => reminder
-    )
-    puts message.to
-  end
-
-  def when_to_run
-    self.due_date
-  end
+  # def reminder
+  #   twilio_number = ENV['TWILIO_NUMBER']
+  #   client = Twilio::REST::Client.new ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN']
+  #   reminder = "Hi #{self.user.name}! Just a reminder that your list #{self.title} is due today."
+  #   message = client.account.messages.create(
+  #     :from => twilio_number,
+  #     :to => self.phone_number,
+  #     :body => reminder
+  #   )
+  #   puts message.to
+  # end
+  #
+  # def when_to_run
+  #   self.due_date
+  # end
 end

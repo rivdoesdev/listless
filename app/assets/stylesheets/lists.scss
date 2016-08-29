@@ -5,12 +5,10 @@
 .list-index {
   padding-top: 2em;
   .your-lists {
-    .title {
-      text-align: center;
-    }
+    margin-left: 2em;
     .card {
       padding: 1em;
-      margin-left: 2em;
+
       .empty {
         text-align: center;
         padding: 1em;
@@ -20,13 +18,11 @@
         padding: 1em;
       }
     }
+  }
   .shared-lists {
-    .title {
-      text-align: center;
-    }
+    margin-left: 2em;
     .card {
       padding: 1em;
-      margin-left: 2em;
       .empty {
         text-align: center;
         padding: 1em;
@@ -38,7 +34,7 @@
       }
     }
   }
-}
+
 
 p {
   margin: 0;
@@ -46,6 +42,9 @@ p {
 
 .list-form {
   padding: 2em;
+  .title {
+    text-align: center;
+  }
 }
 
 .access-name {

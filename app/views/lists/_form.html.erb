@@ -1,39 +1,43 @@
 <div class='list-form'>
-<h4><%= form_title %></h4>
+  <div class="row">
+    <div class="col s10 offset-s1">
+      <h4 class='title'><%= form_title %></h4>
 
-<% if list.errors.any? %>
-    <% list.errors.full_messages.each do |msg| %>
-      <p> <%= msg %></p>
-    <% end %>
-  <% end %>
+    <% if list.errors.any? %>
+        <% list.errors.full_messages.each do |msg| %>
+          <p> <%= msg %></p>
+        <% end %>
+      <% end %>
 
-    <%= form_for(list) do |f| %>
+        <%= form_for(list) do |f| %>
 
-    <span class="textarea1"></span>
-      <label for="title"></label>
-      <%= f.text_field :title, placeholder: 'Title Your List', class: 'form-control' %>
+        <span class="textarea1"></span>
+          <label for="title"></label>
+          <%= f.text_field :title, placeholder: 'Title Your List', class: 'form-control' %>
 
-      <label for="list_difficulty">Difficulty Level </label>
-      <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="On a scale from 1-5, how hard is this list going to be to complete?">?</a>
-      <%= f.range_field(:difficulty, in: 1..5) %>
+          <label for="list_difficulty">Difficulty Level </label>
+          <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="On a scale from 1-5, how hard is this list going to be to complete?">?</a>
+          <%= f.range_field(:difficulty, in: 1..5) %>
 
-      <label for="list_energy">Energy Level </label>
-      <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="On a scale from 1-5, how much energy is this list going to take?">?</a>
-      <%= f.range_field(:energy, in: 1..5) %>
+          <label for="list_energy">Energy Level </label>
+          <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="On a scale from 1-5, how much energy is this list going to take?">?</a>
+          <%= f.range_field(:energy, in: 1..5, class: 'form-control') %>
 
-      <label for="due_date">Due Date </label>
-      <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="If you need to get this list done by a certain date, we'll text you a reminder that morning.">?</a>
-      <%= f.date_field :due_date, class: 'datepicker' %>
+          <label for="due_date">Due Date </label>
+          <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="If you need to get this list done by a certain date, we'll text you a reminder that morning.">?</a>
+          <%= f.date_field :due_date, class: 'datepicker' %>
 
-      <label for="reward">Reward </label>
-      <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="You have the option to set a reward to motivate yourself.">?</a>
-      <%= f.text_field :reward, placeholder: 'Treat yoself', class: 'form-control' %>
+          <label for="reward">Reward </label>
+          <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="You have the option to set a reward to motivate yourself.">?</a>
+          <%= f.text_field :reward, placeholder: 'Treat yoself', class: 'form-control' %>
 
-      <div><%= f.check_box(:public, {}, true, false) %>
-      <label for="list_public">Make This List Public? </label></div>
+          <div><%= f.check_box(:public, {}, true, false) %>
+          <label for="list_public">Make This List Public? </label></div>
 
-      <p><div class ='actions text-center'>
-      <%= f.submit class: 'btn' %>
+          <p><div class ='new-list-btn'>
+          <%= f.submit class: 'btn' %>
+        </div>
+      <% end %>
     </div>
-  <% end %>
+  </div>
 </div>
