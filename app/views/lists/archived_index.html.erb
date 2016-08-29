@@ -1,10 +1,26 @@
-<h4>Archived Lists: </h4>
-  <% lists.each do |list| %>
-  <% if list.archived? %>
-    <% if list.user == current_user %>
-      <ul class='collection'>
-        <li> <%= link_to list.title, list %> </li>
-      </ul>
-    <% end %>
-  <% end %>
-<% end %>
+<div class='archived-index'>
+  <div class='row'>
+    <div class='col s12 m10 offset-m1'>
+      <h4 class='title'>Archived Lists: </h4>
+      <% if lists.where(archived: true).count.zero? %>
+        <div class='card'>
+          <div class='empty'>
+            You don't have any archived lists!
+          </div>
+        </div>
+      <% else %>
+        <% lists.each do |list| %>
+          <% if list.archived? %>
+            <% if list.user == current_user %>
+              <div class='card'>
+                <div class='unempty'>
+                  <%= link_to list.title, list %>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

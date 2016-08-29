@@ -19,7 +19,6 @@
         margin-left: 3em;
       }
     }
-  }
   .shared-lists {
     .title {
       text-align: center;
@@ -33,6 +32,7 @@
       }
       .unempty {
         margin-left: 3em;
+        }
       }
     }
   }
@@ -104,4 +104,23 @@ p {
 
       }
     }
+  }
+
+.archived-index {
+  padding-top: 2em;
+  .title {
+    text-align: center;
+  }
+  .card {
+    padding: 1em;
+    margin-left: 2em;
+    .empty {
+      text-align: center;
+      padding: 1em;
+      }
+    .unempty {
+      margin-left: 3em;
+      }
+    }
+
   }
