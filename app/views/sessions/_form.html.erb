@@ -1,30 +1,31 @@
-<div class='sign-form'>
-  <div class='sign-title'>
-    <h4>Sign In</h4></div>
-    <%= form_for :session do |form| %>
+<div class='row'>
+  <div class='col s12 m8 offset-m2'>
+    <div class='sign-form'>
+      <div class='sign-title'>
+        <h4>Sign In</h4></div>
+        <%= form_for :session do |form| %>
 
-      <div class="text-field">
-        <%= form.label :email %>
-        <%= form.text_field :email, type: 'email' %>
-      </div>
+          <div class="text-field">
+            <%= form.label :email %>
+            <%= form.text_field :email, type: 'email' %>
+          </div>
 
-      <div class="password-field">
-        <%= form.label :password %>
-        <%= form.password_field :password %>
-      </div>
+          <div class="password-field">
+            <%= form.label :password %>
+            <%= form.password_field :password %>
+          </div>
 
-      <div class="submit-field">
-        <p class='sign-submit'>
-          <%= form.submit "Submit", class: 'btn' %>
-          <%= link_to "Sign Up", sign_up_path, class: 'btn' %>
-          <div class='other-links'>
+          <div class="submit-field">
+            <p class='sign-submit'>
+              <%= form.submit "Submit", class: 'btn' %>
+              <%= link_to "Sign Up", sign_up_path, class: 'btn' %>
+              <div class='other-links'>
 
+            </div>
+            </p>
+          </div>
         </div>
-        </p>
       </div>
-
-
-
     <% end %>
   </div>
 </div>

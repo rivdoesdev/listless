@@ -1,21 +1,23 @@
-<% if @user.errors.any? %>
-    <% @user.errors.full_messages.each do |msg| %>
-      <p> <%= msg %></p>
+<div class='user-form'>
+  <% if @user.errors.any? %>
+      <% @user.errors.full_messages.each do |msg| %>
+        <p> <%= msg %></p>
+      <% end %>
     <% end %>
-  <% end %>
 
-<div id="clearance" class="sign-up">
-  <div class='sign-form'>
-    <div class='sign-title'><h4>Sign Up</h4></div>
+  <div id="clearance" class="sign-up">
+    <div class='sign-form'>
+      <div class='sign-title'><h4>Sign Up</h4></div>
 
-    <%= form_for @user do |form| %>
-      <%= render partial: '/users/form.html.erb', object: form %>
-      <div class="submit-field">
-        <p class='sign-submit'>
-          <%= form.submit "Submit", class: 'btn'%>
-        </p>
-      </div>
+      <%= form_for @user do |form| %>
+        <%= render partial: '/users/form.html.erb', object: form %>
+        <div class="submit-field">
+          <p class='sign-submit'>
+            <%= form.submit "Submit", class: 'btn'%>
+          </p>
+        </div>
 
-    <% end %>
-  <div>
+      <% end %>
+    <div>
+  </div>
 </div>
