@@ -18,8 +18,7 @@ Scenario: User sees their own profile page
   And I should see "Sign Out"
   And I should see "Edit Profile"
   And I should see "kate@example.com"
-  And I should see "01/01/1980"
-  And I should see "5123006890"
+
 
 Scenario: User sees another user's profile page
   When I visit "/search?utf8=%E2%9C%93&query=m"
@@ -28,5 +27,3 @@ Scenario: User sees another user's profile page
   And I should not see "Sign Out"
   And I should not see "Edit Profile"
   And I should see "matt@example.com"
-  And I should see "01/01/1981"
-  And I should see "5125551234"

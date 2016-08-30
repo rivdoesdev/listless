@@ -24,6 +24,7 @@ class List < ApplicationRecord
     so && so.completed?
   end
 
+
   # def reminder
   #   twilio_number = ENV['TWILIO_NUMBER']
   #   client = Twilio::REST::Client.new ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN']
