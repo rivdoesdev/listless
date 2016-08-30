@@ -1,13 +1,17 @@
-<div class='public-index'>
-  <div class='list-head'>
-    <h4>Public Lists</h4>
-  </div>
+<div class='row'>
+  <div class='col s12 m8 offset-m2'>
+    <div class='public-index'>
+      <div class='list-head'>
+        <h4>Public Lists</h4>
+      </div>
 
-  <div class='card'>
-    <ol class='public-card'>
-      <% lists.each do |list| %>
-        <li class='item'><%= link_to list.title, "public/#{list.id}" %></li>
-      <% end %>
-    </ol>
+      <div class='card'>
+        <ol class='public-card'>
+          <% lists.each do |list| %>
+            <li class='item'><%= link_to list.title, "public/#{list.id}" %></li>
+          <% end %>
+        </ol>
+      </div>
+    </div>
   </div>
 </div>

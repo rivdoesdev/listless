@@ -28,11 +28,8 @@ var boxy = function() {
       selectMonths: true,
       selectYears: 100
   });
+  $('.tooltipped').tooltip({delay: 50});
 };
 
 $(document).ready(boxy);
 $(document).on("turbolinks:load", boxy);
-
-$(document).ready(function(){
-    $('.tooltipped').tooltip({delay: 50});
-  });

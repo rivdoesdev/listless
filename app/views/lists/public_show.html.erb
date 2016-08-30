@@ -1,34 +1,37 @@
-<div class='public-show'>
-  <div class='list-head'>
-    <h4><%= list.title %></h4>
-  </div>
+<div class='row'>
+  <div class='col s12 m10 offset-m1'>
+    <div class='public-show'>
+      <div class='list-head'>
+        <h4><%= list.title %></h4>
+      </div>
 
-  <div class="row">
-    <div class="list-col col s12 m6">
+      <div class="row">
+        <div class="list-col col s12 m6">
 
-      <ol class='card'>
-      <% list.tasks.where(parent_task_id: nil).each do |task| %>
+          <ol class='card'>
+          <% list.tasks.where(parent_task_id: nil).each do |task| %>
 
-        <li class='item'><%= task.title %>
-        <p><%= task.description %></p>
-        <% if task.children %>
-          <% task.children.each do |child| %>
-            <p><ul class="browser-default"><li><%= child.title %></li></ul></p>
+            <li class='item'><%= task.title %>
+            <p><%= task.description %></p>
+            <% if task.children %>
+              <% task.children.each do |child| %>
+                <p><ul class="browser-default"><li><%= child.title %></li></ul></p>
+                <% end %>
+                <br>
+              <% end %>
             <% end %>
-            <br>
-          <% end %>
-        <% end %>
-      </li>
-      </ol>
-    </div>
+          </li>
+          </ol>
+        </div>
 
-    <div class='row'>
-      <div class="list-col col s12 m6">
-          <div class='stats-card'>
-            <%= react_component("Stat", list: list) %>
-          </div>
-        <br>
+        <div class='row'>
+          <div class="list-col col s12 m6">
+              <div class='stats-card'>
+                <%= react_component("Stat", list: list) %>
+              </div>
+            <br>
+        </div>
+      </div>
     </div>
   </div>
-</div>
 </div>

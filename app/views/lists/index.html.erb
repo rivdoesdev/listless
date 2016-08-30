@@ -49,12 +49,17 @@
           <div class='card'>
             <ul>
               <li class='unempty'>
-                <%= link_to list.title, list %> (<%= list.user.name.capitalize %>)
+                <%= list.user.name.capitalize %>:
+                <p><%= link_to list.title, list %></p>
+                <% end %>
+                <% current_user.users_with_access.each do |user| %>
+                  All Access:
+                  <p><%= link_to "#{user.name}", user %></p>
+                <% end %>
               </li>
             </ul>
           </div>
-          <% end %>
-          <% if permitted_lists.empty? %>
+          <% if permitted_lists.empty? && current_user.s_with_access.empty? %>
           <div class='card'>
             <div class='empty'> You do not have access to any other lists </div>
             <% end %>

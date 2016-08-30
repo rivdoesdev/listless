@@ -7,7 +7,7 @@ Given(/^another user account exists$/) do
 end
 
 Given(/^I have an existing list ranked five$/) do
-  List.create!(title: "List Five", difficulty: 5, energy: 5, due_date: "01/01/2000", reward: "Ruby", user: User.last)
+  List.create!(title: "List Five", difficulty: 5, energy: 5, due_date: "01/01/2000", reward: "Ruby", user: User.last, public: true)
 end
 
 Given(/^I have an existing list ranked four$/) do

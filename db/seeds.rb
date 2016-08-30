@@ -59,3 +59,15 @@ task = Task.create!(list: list, title: "Book an appointment", description: "Have
   Task.create!(parent_task_id: task.id, list: list, title: "Call barber shop", position: 2)
   Task.create!(parent_task_id: task.id, list: list, title: "Write down appointment", position: 3)
   Task.create!(parent_task_id: task.id, list: list, title: "Update due date for reminder", position: 4)
+
+list = List.create!(title: "Finish Final Project", difficulty: "5", energy: "5", due_date: "09/09/2016", reward: "Graduate", user_id: 2, public: false)
+task = Task.create!(list: list, title: "Write tests", description: "Use Cucumber", position: 1)
+  Task.create!(parent_task_id: task.id, list: list, title: "Go through each page of my app and make a file for testing.", position: 1)
+  Task.create!(parent_task_id: task.id, list: list, title: "Complete shared_steps file.", position: 2)
+  Task.create!(parent_task_id: task.id, list: list, title: "Run each test after a scenario is written to cut down on errors.", position: 3)
+task = Task.create!(list: list, title: "Finishing touches", description: "Have Justin demo the app for stylistic changes", position: 2)
+  Task.create!(parent_task_id: task.id, list: list, title: "Make notes of what needs to be fixed.", position: 1)
+
+Permission.create!(user_id: 1, list_id: 6)
+
+Allaccess.create!(user_id: 3, assignee_id: 1)

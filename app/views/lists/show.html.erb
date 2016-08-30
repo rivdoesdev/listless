@@ -1,11 +1,11 @@
 <div class='list-show'>
-  <% if list.archived? %>
-  This list has been archived.
-  <p><%= link_to "Undo", flop_list_path(list), class: "btn" %></p>
-</div>
-<% else %>
-
   <div class='list-head'>
+    <% if list.archived? %>
+    This list has been archived.
+    <p><%= link_to "Undo", flop_list_path(list), class: "btn" %></p>
+    <p><%=link_to "Back", lists_path, class: "btn" %></p>
+  </div>
+  <% else %>
     <h4><%= list.title %></h4>
   </div>
 
@@ -24,7 +24,6 @@
     </div>
 
 
-    <div class='row'>
       <div class="list-col col s12 m6">
         <% if list.user == current_user %>
         <div class='new-list-btn'>
@@ -35,25 +34,26 @@
                completed: true
              }), method: :PUT, class: 'btn' %>
           <% end %>
-        </div>
-        <div class='stats-card'>
-          <%= react_component("Stat", list: list) %>
+          <% end %>
+
+          <div class='stats-card'>
+            <%= react_component("Stat", list: list) %>
+          </div>
         </div>
         <br>
 
+        <% if list.user == current_user %>
         <div class='card'>
           <div class='perm-form'>
             <p class='title'>Give Someone Access to Your List:</p>
-            <%= form_for(permission) do |f| %>
-            <div class='access-name'><label for="user_id">Users </label>
-              <%= f.select :user_id, options_from_collection_for_select(no_permission_users(list), :id, :name) %>
-            </div>
-
-            <%= f.hidden_field :list_id, value: list.id %>
-
-            <div class='new-list-btn'>
-              <%= f.submit "Add", class: "btn" %>
-            <% end %>
+              <%= form_for(permission) do |f| %>
+              <div class='access-name'><label for="user_id">Users </label>
+                <%= f.select :user_id, options_from_collection_for_select(no_permission_users(list), :id, :name) %>
+              </div>
+              <%= f.hidden_field :list_id, value: list.id %>
+              <div class='new-list-btn'>
+                <%= f.submit "Add", class: "btn" %>
+              <% end %>
             </div>
 
         <p>Can See This List: </p>
