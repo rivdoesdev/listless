@@ -11,7 +11,8 @@
 
     <% unless lists.where(difficulty: 5).empty? %>
       <ul class='collection'>
-        <p class='list-collection'>5
+        <p class='list-collection'>
+          ⭐️⭐️⭐️⭐️⭐️
         <% lists.each do |list| %>
           <% unless list.archived? %>
             <% if list.user == current_user %>
@@ -26,7 +27,7 @@
 
     <% unless lists.where(difficulty: 4).empty? %>
       <ul class='collection'>
-        <p class='list-collection'>4
+        <p class='list-collection'>⭐️⭐️⭐️⭐️
         <% lists.each do |list| %>
           <% unless list.archived? %>
             <% if list.user == current_user %>
@@ -41,7 +42,7 @@
 
     <% unless lists.where(difficulty: 3).empty? %>
       <ul class='collection'>
-        <p class='list-collection'>3
+        <p class='list-collection'>⭐️⭐️⭐️
         <% lists.each do |list| %>
           <% unless list.archived? %>
             <% if list.user == current_user %>
@@ -56,7 +57,7 @@
 
     <% unless lists.where(difficulty: 2).empty? %>
       <ul class='collection'>
-        <p class='list-collection'>2
+        <p class='list-collection'>⭐️⭐️
         <% lists.each do |list| %>
           <% unless list.archived? %>
             <% if list.user == current_user %>
@@ -71,7 +72,7 @@
 
       <% unless lists.where(difficulty: 1).empty? %>
         <ul class='collection'>
-          <p class='list-collection'>1
+          <p class='list-collection'>⭐️
           <% lists.each do |list| %>
             <% unless list.archived? %>
               <% if list.user == current_user %>

@@ -1,15 +1,7 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
 #TODO: Move away from manually setting IDs, it breaks the way postgres does auto increment.
 #INFO: http://stackoverflow.com/questions/11068800/rails-auto-assigning-id-that-already-exists
 
-User.create!(name: "Kate", email: "kate@example.com", password: "password", birthday: "01/01/1980", phone_number: "5123006890", about_me: Faker::Lorem.paragraphs(2))
+User.create!(name: "Kate", email: "kate@example.com", password: "password", birthday: "01/01/1980", phone_number: "5123006890", about_me: Faker::Lorem.paragraph)
 User.create!(name: "Matt", email: "matt@example.com", password: "password", birthday: "01/01/1981", phone_number: "5125551234", about_me: Faker::Lorem.paragraph)
 User.create!(name: "Rob", email: "rob@example.com", password: "password", birthday: "01/01/1982", phone_number: "5124329876", about_me: Faker::Lorem.paragraph)
 User.create!(name: "Ahkeem", email: "ahkeem@example.com", password: "password", birthday: "01/01/1983", phone_number: "5123453456", about_me: Faker::Lorem.paragraph)

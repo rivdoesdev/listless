@@ -47,7 +47,7 @@ class TasksController < ApplicationController
       else
         redirect_to task.parent
       end
-      flash[:alert] = "Updated"
+      flash[:alert] = "Your task has been updated successfully."
     else
       render :edit, locals: {
         task: task,
@@ -59,7 +59,7 @@ class TasksController < ApplicationController
   def destroy
     if Task.exists?(params[:id])
       Task.destroy(params[:id])
-      flash[:notice] = "Task deleted"
+      flash[:notice] = "Task deleted!"
       redirect_to task.list
     else
       flash[:alert] = "Task was not destroyed due to errors."

@@ -6,73 +6,78 @@
 <% else %>
 
   <div class='list-head'>
-  <h4><%= list.title %></h4>
+    <h4><%= list.title %></h4>
   </div>
 
-    <div class="row">
-      <div class="list-col col s12 m6">
-        <div class='new-list-btn'>
-          <%= link_to "Add Task", new_task_path(list_id: list.id), class: "btn" %>
-        </div>
-        <ol>
-          <% list.tasks.where(parent_task_id: nil).each do |task| %>
-            <%= react_component("Task", task: task) %>
-          <% end %>
-        </ol>
+  <div class="row">
+    <div class="list-col col s12 m6">
+      <div class='new-list-btn'>
+        <%= link_to "Add Task", new_task_path(list_id: list.id), class: "btn" %>
       </div>
+      <ol>
+        <% list.tasks.where(parent_task_id: nil).each do |task| %>
+          <%= react_component("Task", task: task) %>
+        <% end %>
+      </ol>
+    </div>
 
-      <div class='row'>
-        <div class="list-col col s12 m6">
-          <div class='new-list-btn'>
-            <% if so.present? %>
-              <%= link_to "Complete", startover_path(so, startover: {
-                 list_id: list.id,
-                 user_id: current_user.id,
-                 completed: true
-               }), method: :PUT, class: 'btn' %>
-               <% end %>
-             </div>
-            <div class='stats-card'>
-              <%= react_component("Stat", list: list) %>
+
+    <div class='row'>
+      <div class="list-col col s12 m6">
+        <% if list.user == current_user %>
+        <div class='new-list-btn'>
+          <% if so.present? %>
+            <%= link_to "Complete", startover_path(so, startover: {
+               list_id: list.id,
+               user_id: current_user.id,
+               completed: true
+             }), method: :PUT, class: 'btn' %>
+          <% end %>
+        </div>
+        <div class='stats-card'>
+          <%= react_component("Stat", list: list) %>
+        </div>
+        <br>
+
+        <div class='card'>
+          <div class='perm-form'>
+            <p class='title'>Give Someone Access to Your List:</p>
+            <%= form_for(permission) do |f| %>
+            <div class='access-name'><label for="user_id">Users </label>
+              <%= f.select :user_id, options_from_collection_for_select(no_permission_users(list), :id, :name) %>
             </div>
 
-          <br>
+            <%= f.hidden_field :list_id, value: list.id %>
 
-      <div class='card'>
-        <div class='perm-form'>
-          <%= form_for(permission) do |f| %>
-        <div class='access-name'><label for="user_id">Give Someone Access to Your List: </label>
-          <%= f.select :user_id, options_from_collection_for_select(no_permission_users(list), :id, :name) %>
-        </div>
+            <div class='new-list-btn'>
+              <%= f.submit "Add", class: "btn" %>
+            <% end %>
+            </div>
 
-        <%= f.hidden_field :list_id, value: list.id %>
-
-        <div>
-          <%= f.submit class: "btn" %>
-        </div>
-      <% end %>
-
-      <p>Can See This List: </p>
-      <% if list.permissions.empty? %>
-      No other users can see this list.
-      <% end %>
-        <% list.permissions.uniq.each do |perm| %>
-          <p class='perm-users'><%= perm.user.name.capitalize %>
-          <span class='red-x'><%= link_to "X", permission_path(perm), method: :delete %></span></p>
+        <p>Can See This List: </p>
+        <% if list.permissions.empty? %>
+        No other users can see this list.
         <% end %>
+            <% list.permissions.uniq.each do |perm| %>
+              <p class='perm-users'><%= perm.user.name.capitalize %>
+              <span class='red-x'><%= link_to "X", permission_path(perm), method: :delete %></span></p>
+            <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
 </div>
-</div>
 
 
-      <div class="list-foot col s12">
-        <%= link_to "Update", edit_list_path(list), class: "btn" %>
-        <%= link_to "Archive", flop_list_path(list), class: "btn" %>
-        <p><%= link_to "Need help getting started?", "http://www.google.com/", target: "_blank" %></p>
+        <div class="list-foot col s12">
+          <% if list.user == current_user %>
+            <%= link_to "Update", edit_list_path(list), class: "btn" %>
+            <%= link_to "Archive", flop_list_path(list), class: "btn" %>
+          <% end %>
+          <% end %>
+          <p><%= link_to "Need help getting started?", "http://www.google.com/", target: "_blank" %></p>
+        </div>
       </div>
     </div>
   </div>
-  </div>
-<% end %>

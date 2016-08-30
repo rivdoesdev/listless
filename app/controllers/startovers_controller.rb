@@ -9,7 +9,7 @@ class StartoversController < ApplicationController
     if startover
       startover.update(so_params)
       redirect_to startover.list
-      flash[:alert] = "Updated"
+      flash[:alert] = "Congrats on finishing your list!"
     else
       redirect_to :back
     end

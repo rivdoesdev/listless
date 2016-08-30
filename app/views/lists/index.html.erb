@@ -47,17 +47,19 @@
 
           <% permitted_lists.each do |list| %>
           <div class='card'>
-            <li class='unempty'>
-              <%= link_to list.title, list %> (<%= list.user.name.capitalize %>)
-            </li>
+            <ul>
+              <li class='unempty'>
+                <%= link_to list.title, list %> (<%= list.user.name.capitalize %>)
+              </li>
+            </ul>
+          </div>
           <% end %>
           <% if permitted_lists.empty? %>
           <div class='card'>
-            <div class='empty'> You do not have access to any other lists </p>
+            <div class='empty'> You do not have access to any other lists </div>
+            <% end %>
           </div>
-
         </div>
-        <% end %>
         <p class='list-links'><%= link_to "Permissions", permissions_path %></p>
       </div>
     </div>

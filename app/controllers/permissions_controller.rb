@@ -14,7 +14,7 @@ class PermissionsController < ApplicationController
   def create
     permission = Permission.new(permission_params)
     if permission.save
-      flash[:notice] = 'Permission created!'
+      flash[:notice] = "#{permission.user.name} can now see this list."
       redirect_to permission.list
     else
       flash[:alert] = permission.errors.full_messages
@@ -26,7 +26,7 @@ class PermissionsController < ApplicationController
     permission = Permission.find(params[:id])
     if has_permission?(permission.list)
         permission.destroy
-        flash[:notice] = 'This user no longer has extra permissions.'
+        flash[:notice] = "#{permission.user.name} no longer has extra permissions."
         redirect_to :back
     else
       flash[:alert] = 'You cannot delete this permission.'
