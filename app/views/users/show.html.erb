@@ -5,6 +5,7 @@
         <%= image_tag @user.avatar.url(:medium) %>
       </div>
       <% if user == current_user %>
+      <br>
         <p>Welcome, <%= current_user.name.capitalize %>!</p>
         <p>
           <% if signed_in? %>
