@@ -1,19 +1,39 @@
-<h4>Search Results</h4>
+<div class='row'>
+  <div class='col s12 m8 offset-m2'>
+    <div class='search-index'>
+      <div class="collection with-header">
+        <div class='collection-header'>
+          <h4 class='title'>Search Results</h4>
+        </div>
 
-<% if lists.empty? && users.empty? %>
-  <h5 class='centered'>No lists or users found</h5>
-<% else %>
-  <h5>Lists</h5>
-  <% if lists %>
-    <% lists.each do |l| %>
-      <p><%= link_to l.title, l %></p>
-    <% end %>
-  <% end %>
-
-  <h5>Users</h5>
-  <% if users %>
-    <% users.each do |u| %>
-      <p><%= link_to u.name, u %></p>
-    <% end %>
-  <% end %>
-<% end %>
+        <div class='collection-item'>
+          <% if lists.empty? && users.empty? %>
+            <h5='title'>No lists or users found</h5>
+          <% else %>
+          <div class='row'>
+            <div class='col s12 m6'>
+            <h5>Lists</h5>
+            <% if lists.empty? %>
+            <p>No lists found</p>
+            <% else %>
+              <% lists.each do |l| %>
+                <p><%= link_to l.title, l %></p>
+              <% end %>
+            <% end %>
+            </div>
+            <div class='col s12 m6'>
+              <h5>Users</h5>
+              <% if users.empty? %>
+              <p>No users found</p>
+              <% else %>
+                <% users.each do |u| %>
+                  <p><%= link_to u.name, u %></p>
+                <% end %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

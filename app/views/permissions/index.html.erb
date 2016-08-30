@@ -37,13 +37,13 @@
         </div>
 
         <div class='perm-form'>
-        <p>Give All Access to Your Account:<p>
+        <strong>Give All Access to Your Account:</strong>
         <%= form_for(allaccess) do |f| %>
           <div class='assignee_id'><label for="user_id">User: </label>
             <%= f.select :assignee_id, options_from_collection_for_select(no_access_users(current_user), :id, :name) %>
           </div>
           <div class='new-list-btn'>
-            <%= f.submit class: "btn" %>
+            <%= f.submit 'Submit', class: "btn" %>
           </div>
         <% end %>
       </div>
