@@ -1,46 +1,52 @@
-<p>Everyone Who Can See Your Lists: </p>
-  <div class='all-perm'><b>Access To All Lists</b>
-    <ul class='collection'>
-      <% if current_user.allaccesses.empty? %>
-        <p>No Users have been given permission to view all your lists</p>
-      <% end %>
-      <% current_user.allaccesses.each do |access| %>
-        <li class='collection-item perm-users'>
-          <%= access.assignee.name.capitalize %>
-          <span class='red-x'><%= link_to "X", allaccess_path(access), method: :delete %></span>
-        </li>
-      <% end %>
-    </ul>
-  </div>
+<div class='perm-index'>
+  <div class='row'>
+    <div class='col s10 offset-s1 m8 offset-m2'>
+      <h4 class='title'>Everyone Who Can See Your Lists: </h4>
+        <div class='all-perm'><b>Access To All Lists</b>
+          <ul class='collection'>
+            <% if current_user.allaccesses.empty? %>
+              <p>No Users have been given permission to view all your lists</p>
+            <% end %>
+            <% current_user.allaccesses.each do |access| %>
+              <li class='collection-item perm-users'>
+                <%= access.assignee.name.capitalize %>
+                <span class='red-x'><%= link_to "X", allaccess_path(access), method: :delete %></span>
+              </li>
+            <% end %>
+          </ul>
+        </div>
 
-  <div class='list-perm'><b>Access To Individual Lists</b>
-    <ul class='collection'>
-    <% if permissions_grouped_by_list.empty? %>
-      <p> No Users have been given permission to view your lists</p>
-    <% end %>
-    <% permissions_grouped_by_list.each do |list, perms| %>
-        <li class='collection-item perm-users'>
-          <%= list.title %> -
-          <% if perms.empty? %>
-            <p>No Users</p>
+        <div class='list-perm'><b>Access To Individual Lists</b>
+          <ul class='collection'>
+          <% if permissions_grouped_by_list.empty? %>
+            <p> No Users have been given permission to view your lists</p>
           <% end %>
-          <% perms.each do |perm| %>
-            <%= perm.user.name.capitalize %>
-            <span class='red-x'><%= link_to "X", permission_path(perm), method: :delete %></span>
-          <% end %>
-        </li>
-      </ul>
-    <% end %>
+          <% permissions_grouped_by_list.each do |list, perms| %>
+            <li class='collection-item perm-users'>
+              <%= list.title %> -
+                <% if perms.empty? %>
+                  <p>No Users</p>
+                <% end %>
+                <% perms.each do |perm| %>
+                  <%= perm.user.name.capitalize %>
+                  <span class='red-x'><%= link_to "X", permission_path(perm), method: :delete %></span>
+                <% end %>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+
+        <div class='perm-form'>
+        <p>Give All Access to Your Account:<p>
+        <%= form_for(allaccess) do |f| %>
+          <div class='assignee_id'><label for="user_id">User: </label>
+            <%= f.select :assignee_id, options_from_collection_for_select(no_access_users(current_user), :id, :name) %>
+          </div>
+          <div class='new-list-btn'>
+            <%= f.submit class: "btn" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
-
-
-<p>Give All Access to Your Account:<p>
-  <%= form_for(allaccess) do |f| %>
-    <div class='assignee_id'><label for="user_id">User: </label>
-    <%= f.select :assignee_id, options_from_collection_for_select(no_access_users(current_user), :id, :name) %>
-    </div>
-
-    <div>
-      <%= f.submit class: "waves-effect waves-light btn" %>
-    </div>
-  <% end %>
+</div>
