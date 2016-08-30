@@ -9,12 +9,12 @@
 #TODO: Move away from manually setting IDs, it breaks the way postgres does auto increment.
 #INFO: http://stackoverflow.com/questions/11068800/rails-auto-assigning-id-that-already-exists
 
-User.create!(name: "Kate", email: "kate@example.com", password: "password", birthday: "01/01/2000", phone_number: "5123006890", about_me: "Hello world!")
-User.create!(name: "Matt", email: "matt@example.com", password: "password")
-User.create!(name: "Rob", email: "rob@example.com", password: "password")
-User.create!(name: "Ahkeem", email: "ahkeem@example.com", password: "password")
-User.create!(name: "Dane", email: "dane@example.com", password: "password")
-User.create!(name: "Justin", email: "justin@example.com", password: "password")
+User.create!(name: "Kate", email: "kate@example.com", password: "password", birthday: "01/01/1980", phone_number: "5123006890", about_me: Faker::Lorem.paragraphs(2))
+User.create!(name: "Matt", email: "matt@example.com", password: "password", birthday: "01/01/1981", phone_number: "5125551234", about_me: Faker::Lorem.paragraph)
+User.create!(name: "Rob", email: "rob@example.com", password: "password", birthday: "01/01/1982", phone_number: "5124329876", about_me: Faker::Lorem.paragraph)
+User.create!(name: "Ahkeem", email: "ahkeem@example.com", password: "password", birthday: "01/01/1983", phone_number: "5123453456", about_me: Faker::Lorem.paragraph)
+User.create!(name: "Dane", email: "dane@example.com", password: "password", birthday: "01/01/1984", phone_number: "5128826789", about_me: Faker::Lorem.paragraph)
+User.create!(name: "Justin", email: "justin@example.com", password: "password", birthday: "01/01/1985", phone_number: "5126329999", about_me: Faker::Lorem.paragraph)
 
 List.create!(title: "Balance checking account", difficulty: "5/5", energy: "3/5", due_date: "10/01/2016", reward: "Using extra money for a drink with friends", user_id: 1, public: true)
 Task.create!(title: "Gather all receipts", position: 1, list_id: 5)
