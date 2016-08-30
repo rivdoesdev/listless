@@ -12,7 +12,9 @@
   <div class="row">
     <div class="list-col col s12 m6">
       <div class='new-list-btn'>
-        <%= link_to "Add Task", new_task_path(list_id: list.id), class: "btn" %>
+        <% if list.user == current_user %>
+          <%= link_to "Add Task", new_task_path(list_id: list.id), class: "btn" %>
+        <% end %>
       </div>
       <ol>
         <% list.tasks.where(parent_task_id: nil).each do |task| %>

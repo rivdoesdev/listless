@@ -6,6 +6,26 @@ Given(/^another user account exists$/) do
   User.create!(name: "Matt", email: "matt@example.com", password: "password", birthday: "01/01/2000", phone_number: "5555555555", about_me: "Hello world!")
 end
 
+Given(/^I have an existing list ranked five$/) do
+  List.create!(title: "List Five", difficulty: 5, energy: 5, due_date: "01/01/2000", reward: "Ruby", user: User.last)
+end
+
+Given(/^I have an existing list ranked four$/) do
+  List.create!(title: "List Four", difficulty: 4, energy: 5, due_date: "01/01/2000", reward: "Ruby", user: User.last)
+end
+
+Given(/^I have an existing list ranked three$/) do
+  List.create!(title: "List Three", difficulty: 3, energy: 5, due_date: "01/01/2000", reward: "Ruby", user: User.last)
+end
+
+Given(/^I have an existing list ranked two$/) do
+  List.create!(title: "List Two", difficulty: 2, energy: 5, due_date: "01/01/2000", reward: "Ruby", user: User.last)
+end
+
+Given(/^I have an existing list ranked one$/) do
+  List.create!(title: "List One", difficulty: 1, energy: 5, due_date: "01/01/2000", reward: "Ruby", user: User.last)
+end
+
 When(/^I visit "([^"]*)"$/) do |path|
   visit(path)
 end
