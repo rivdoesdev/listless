@@ -54,12 +54,12 @@
                 <% end %>
                 <% current_user.users_with_access.each do |user| %>
                   All Access:
-                  <p><%= link_to "#{user.name}", user %></p>
+                  <p><%= link_to "#{user.name}", list_path(user) %></p>
                 <% end %>
               </li>
             </ul>
           </div>
-          <% if permitted_lists.empty? && current_user.s_with_access.empty? %>
+          <% if permitted_lists.empty? && current_user.users_with_access.empty? %>
           <div class='card'>
             <div class='empty'> You do not have access to any other lists </div>
             <% end %>

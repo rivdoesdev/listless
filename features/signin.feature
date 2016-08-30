@@ -25,3 +25,39 @@ Scenario: A User Unsuccessfully Logs In
   And I fill in "Password" with "password"
   And I press "Submit"
   Then I should see "Bad email or password."
+
+Scenario: A User Unsuccessfully Logs In
+  Given I have an existing user account
+  When I visit "/sign_in"
+  Then I should see "Sign In"
+  And I should see "Email"
+  And I should see "Password"
+  And I should see "Sign Up"
+  And I fill in "Email" with "kate@example.com"
+  And I fill in "Password" with "passwor"
+  And I press "Submit"
+  Then I should see "Bad email or password."
+
+Scenario: A User Unsuccessfully Logs In
+  Given I have an existing user account
+  When I visit "/sign_in"
+  Then I should see "Sign In"
+  And I should see "Email"
+  And I should see "Password"
+  And I should see "Sign Up"
+  And I fill in "Email" with "kate@example.com"
+  And I fill in "Password" with ""
+  And I press "Submit"
+  Then I should see "Bad email or password."
+
+Scenario: A User Unsuccessfully Logs In
+  Given I have an existing user account
+  When I visit "/sign_in"
+  Then I should see "Sign In"
+  And I should see "Email"
+  And I should see "Password"
+  And I should see "Sign Up"
+  And I fill in "Email" with ""
+  And I fill in "Password" with "password"
+  And I press "Submit"
+  Then I should see "Bad email or password."
