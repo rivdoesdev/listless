@@ -32,7 +32,9 @@ var ChildStrikethrough = React.createClass({
         <li>
           <span className={this.state.isStrikeThrough} onClick={this.onHandleClick}>{this.props.child.title}</span>
           <a className="react-clear" onClick={this.handleClear.bind(this, this.props.child.id)}>
-            <i className="tiny material-icons">clear</i>
+            <span className="red-x">
+              <i className="tiny material-icons">clear</i>
+              </span>
           </a>
         </li>
       )

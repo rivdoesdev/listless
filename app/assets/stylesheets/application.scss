@@ -29,6 +29,9 @@ $primary-color: color("grey", "lighten-4") !default;
 
 body {
   color: #28666E;
+  #flash {
+    text-align: center;
+  }
 }
   .yield-body {
       padding: 20px;
@@ -41,6 +44,9 @@ body {
   .react-clear {
     margin-left: .5em;
     cursor: pointer;
+    .red-x {
+      color: red;
+    }
   }
 
 
