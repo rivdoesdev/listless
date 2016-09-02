@@ -27,13 +27,14 @@ $primary-color: color("grey", "lighten-4") !default;
   color: white;
 }
 
+#flash {
+  text-align: center;
+  color: red;
+}
+
 body {
   color: #28666E;
-  #flash {
-    text-align: center;
-    margin-top: 15px;
-    color: red;
-  }
+
 }
   .yield-body {
       padding: 20px;
@@ -46,6 +47,9 @@ body {
   .react-clear {
     margin-left: .5em;
     cursor: pointer;
+    .red-x {
+      color: red;
+    }
   }
 
 
