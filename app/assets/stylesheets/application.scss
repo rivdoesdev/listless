@@ -29,6 +29,11 @@ $primary-color: color("grey", "lighten-4") !default;
 
 body {
   color: #28666E;
+  #flash {
+    text-align: center;
+    margin-top: 15px;
+    color: red;
+  }
 }
   .yield-body {
       padding: 20px;
