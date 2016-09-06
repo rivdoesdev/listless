@@ -44,10 +44,8 @@
     <div class="col s12 m6">
       <div class="shared-lists">
         <h5 class='title'>Lists You Have Access To:</h5>
-
-          <% permitted_lists.each do |list| %>
-          <div class='card'>
-            <ul>
+          <ul class='card'>
+            <% permitted_lists.each do |list| %>
               <li class='unempty'>
                 <%= list.user.name.capitalize %>:
                 <p><%= link_to list.title, list %></p>
@@ -58,7 +56,7 @@
                 <% end %>
               </li>
             </ul>
-          </div>
+
           <% if permitted_lists.empty? && current_user.users_with_access.empty? %>
           <div class='card'>
             <div class='empty'> You do not have access to any other lists </div>
