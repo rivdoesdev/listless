@@ -4,7 +4,23 @@
     text-align: center;
     padding-bottom: 20px;
   }
+  .all-perm {
+    .card {
+      padding: 2em;
+    }
+  }
+  .list-perm {
+    .card {
+      padding: 2em;
+    }
+  }
   .perm-form {
-
+    .card {
+      padding: 2em;
+      .new_allaccess {
+        margin-left: 2em;
+        margin-right: 2em;
+      }
+    }
   }
 }
