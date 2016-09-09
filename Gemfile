@@ -30,6 +30,7 @@ gem "paperclip", "~> 5.0.0"
 gem 'react-rails'
 gem 'simplecov', :require => false, :group => :test
 gem 'faker'
+gem 'dotenv-rails'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'

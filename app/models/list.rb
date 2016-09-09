@@ -31,13 +31,13 @@ class List < ApplicationRecord
     reminder = "Hi #{self.user.name}! Just a reminder that your list #{self.title} is due today."
     message = client.account.messages.create(
       :from => twilio_number,
-      :to => self.phone_number,
+      :to => user.phone_number,
       :body => reminder
-    )
-    puts message.to
+   )
+   puts message.to
   end
 
-  def when_to_run
-    self.due_date
-  end
+ def when_to_run
+   self.due_date
+ end
 end
