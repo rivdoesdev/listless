@@ -45,11 +45,12 @@ p {
   .title {
     text-align: center;
   }
-  .select-dropdown {
-    
+  .time {
+    border: 1px solid blue;
+    .select-wrapper.intialized {
       width: 10%;
       display: inline;
-
+    };
   };
 }
 
