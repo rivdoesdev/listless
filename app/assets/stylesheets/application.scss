@@ -27,6 +27,11 @@ $primary-color: color("grey", "lighten-4") !default;
   color: white;
 }
 
+.time-select {
+  width: 10%;
+  display: inline;
+}
+
 body {
   color: #28666E;
   #flash {
