@@ -24,10 +24,12 @@
           <%= f.range_field(:energy, in: 1..5, class: 'form-control') %>
 
           <label for="due_date">Due Date </label>
-          <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="If you need to get this list done by a certain date, we'll text you a reminder that morning.">?</a>
+          <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="If you need to get this list done by a certain date, we'll text you a reminder.">?</a>
           <%= f.date_field :due_date, class: 'datepicker' %>
-          <label for='due_date'>Time </label>
-          <%= f.time_select :due_date, {}, { class: 'form-control' } %>
+
+          <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Select a time for a reminder text.">?</a>
+          <label for="due_date">Time </label>
+          <%= time_select :reminder, class: 'form-control' %>
 
           <label for="reward">Reward </label>
           <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="You have the option to set a reward to motivate yourself.">?</a>
