@@ -29,8 +29,7 @@ class List < ApplicationRecord
   def reminder
     twilio_number = ENV['TWILIO_NUMBER']
     client = Twilio::REST::Client.new ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN']
-    time_str = ((self.time).localtime).strftime("%I:%M%p on %b. %d, %Y")
-    reminder = "Hi #{self.user.name}! Just a reminder that your list #{self.title} is due at #{time_str}."
+    reminder = "Hi #{self.user.name}! Just a reminder that your list #{self.title} is due at #{time}."
     message = client.account.messages.create(
       :from => twilio_number,
       :to => user.phone_number,
