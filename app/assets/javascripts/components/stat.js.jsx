@@ -18,13 +18,13 @@ var Stat = React.createClass({
                 return (<span key={index}>⭐️</span>);
               })}
             </span></p>
-          <p>{"Due Date: " +
-            if (this.props.list.due_date === null) {
-              "No due date"
-            } else {
-              this.props.list.due_date
-            }
-          }</p>
+            <p>{"Due Date: " + this.props.list.due_date}</p>
+              {(() => {
+        switch (this.props.list.due_date) {
+          case "null":   return "No due date";
+          default:      return this.props.list.due_date;
+        }
+      })()}
             <p>{"Reward: " + this.props.list.reward}</p>
           </li>
         </ul>
