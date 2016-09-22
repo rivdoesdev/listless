@@ -49,8 +49,9 @@
             <li class='unempty'>
               <% permitted_lists.each do |list| %>
                 <%= list.user.name.capitalize %>:
-                <p><%= link_to list.title, list %></p><br>
+                <p><%= link_to list.title, list %></p>
                 <% end %>
+                <br>
                   All Access:
                   <% current_user.users_with_access.each do |user| %>
                   <p><%= link_to "#{user.name}", list_path(user) %></p>
