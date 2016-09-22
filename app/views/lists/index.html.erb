@@ -44,9 +44,8 @@
     <div class="col s12 m6">
       <div class="shared-lists">
         <h5 class='title'>Lists You Have Access To:</h5>
-
+        <div class='card'>
           <% permitted_lists.each do |list| %>
-          <div class='card'>
             <ul>
               <li class='unempty'>
                 <%= list.user.name.capitalize %>:
