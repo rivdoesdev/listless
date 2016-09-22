@@ -45,11 +45,11 @@
       <div class="shared-lists">
         <h5 class='title'>Lists You Have Access To:</h5>
         <div class='card'>
-          <% permitted_lists.each do |list| %>
-            <ul>
-              <li class='unempty'>
+          <ul>
+            <li class='unempty'>
+              <% permitted_lists.each do |list| %>
                 <%= list.user.name.capitalize %>:
-                <p><%= link_to list.title, list %></p>
+                <p><%= link_to list.title, list %></p><br>
                 <% end %>
                 <% current_user.users_with_access.each do |user| %>
                   All Access:
