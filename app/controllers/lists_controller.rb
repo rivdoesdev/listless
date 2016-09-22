@@ -131,8 +131,8 @@ class ListsController < ApplicationController
   end
 
   def update
-    if List.exists?(params[:id])
-      List.update(list_params)
+    list = List.find(params[:id])
+    if list.update(list_params)
       redirect_to list_path
     else
       render :edit
