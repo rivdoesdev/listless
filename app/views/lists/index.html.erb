@@ -51,8 +51,8 @@
                 <%= list.user.name.capitalize %>:
                 <p><%= link_to list.title, list %></p><br>
                 <% end %>
-                <% current_user.users_with_access.each do |user| %>
                   All Access:
+                  <% current_user.users_with_access.each do |user| %>
                   <p><%= link_to "#{user.name}", list_path(user) %></p>
                 <% end %>
               </li>
