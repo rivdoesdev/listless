@@ -54,7 +54,7 @@
                 <br>
                   All Access:
                   <% current_user.users_with_access.each do |user| %>
-                  <p><%= link_to "#{user.name}", list_path(user) %></p>
+                  <p><%= link_to "#{user.name}", permission_path(user) %></p>
                 <% end %>
               </li>
             </ul>

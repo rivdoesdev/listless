@@ -1,0 +1,4 @@
+<% current_user.users_with_access.each do |user| %>
+  <%= user.name %>
+  <%= user.lists %>
+<% end %>
