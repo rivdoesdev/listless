@@ -1,4 +1,4 @@
 <% current_user.users_with_access.each do |user| %>
-  <%= user.name %>
-  <%= user.lists %>
+  <strong><%= user.name %></strong><br>
+  <p><%= user.lists %></p><br>
 <% end %>
