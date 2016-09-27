@@ -1,4 +1,14 @@
 class AllaccessesController < ApplicationController
+  def show
+    if Allaccess.exists?(params[:id])
+    render locals: {
+      allaccess: Allaccess.find(params[:id])
+    }
+    else
+      render html: { message: "404 not found"}, status: 404
+    end
+  end
+
   def create
     allaccess = Allaccess.new(allaccess_params)
     allaccess.user = current_user

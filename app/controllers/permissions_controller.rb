@@ -7,16 +7,6 @@ class PermissionsController < ApplicationController
     }
   end
 
-  def show
-    if Permission.exists?(params[:id])
-    render locals: {
-      permission: Permission.find(params[:id])
-    }
-    else
-      render html: { message: "404 not found"}, status: 404
-    end
-  end
-
 
   def new
     render locals: { permission: Permission.new }
