@@ -1,5 +1,9 @@
-<% current_user.users_with_access.each do |user| %>
-  <strong><%= user.name %></strong><br>
-  <p><%= user.lists %></p><br>
-  <!-- user.lists.title.throws no method error  -->
-<% end %>
+<div class='list-show'>
+  <h4><%= allaccess.assignee.name %></h4>
+
+  <% allaccess.assignee.lists.each do |list| %>
+  <ul class='browser-default'>
+    <li><%= list.title %></li>
+  </ul>
+  <% end %>
+</div>
