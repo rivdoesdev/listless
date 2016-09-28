@@ -3,7 +3,7 @@
 
   <% allaccess.assignee.lists.each do |list| %>
   <ul class='browser-default'>
-    <li><%= list.title %></li>
+    <li><%= link_to list.title, list %></li>
   </ul>
   <% end %>
 </div>
