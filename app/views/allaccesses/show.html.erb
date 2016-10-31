@@ -1,9 +1,13 @@
 <div class='list-show'>
-  <h4><%= allaccess.assignee.name %></h4>
+  <h4><%= current_user.users_with_access.name %>'s Lists</h4>
 
-  <% allaccess.assignee.lists.each do |list| %>
-  <ul class='browser-default'>
-    <li><%= link_to list.title, list %></li>
-  </ul>
-  <% end %>
+  <div class='row'>
+    <div class='list-col col s12 m6'>
+      <% allaccess.assignee.lists.each do |list| %>
+      <ul class='browser-default'>
+        <li><%= link_to list.title, list %></li>
+      </ul>
+      <% end %>
+    </div>
+  </div>
 </div>
