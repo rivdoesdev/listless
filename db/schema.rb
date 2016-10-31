@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160824181116) do
+ActiveRecord::Schema.define(version: 20161031183528) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,13 +27,14 @@ ActiveRecord::Schema.define(version: 20160824181116) do
     t.string   "title",                      null: false
     t.integer  "difficulty",                 null: false
     t.integer  "energy",                     null: false
-    t.date     "due_date"
+    t.datetime "due_date"
     t.string   "reward"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.integer  "user_id"
     t.boolean  "public",     default: false
     t.boolean  "archived",   default: false
+    t.time     "time"
     t.index ["user_id"], name: "index_lists_on_user_id", using: :btree
   end
 
