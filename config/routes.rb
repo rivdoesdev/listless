@@ -24,13 +24,13 @@ Rails.application.routes.draw do
   resources :permissions
   resources :lists do
     member do
-        get :flop
+      get :flop
     end
   end
+
   resources :tasks
   resources :users, controller: "clearance/users"
 
   get :search, controller: 'search', as: 'search'
   root 'dashboard#index', as: 'root'
-
 end

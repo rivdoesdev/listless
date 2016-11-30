@@ -25,7 +25,7 @@ class AllaccessesController < ApplicationController
     allaccess.user = current_user
     if allaccess
         allaccess.destroy
-        flash[:notice] = 'This user can no longer has access to all your lists.'
+        flash[:notice] = 'This user no longer has access to all your lists.'
         redirect_to :back
     else
       flash[:alert] = 'You cannot delete this permission.'

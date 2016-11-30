@@ -26,8 +26,8 @@
               <% if users.empty? %>
               <p>No users found</p>
               <% else %>
-                <% users.each do |u| %>
-                  <p><%= link_to u.name, u %></p>
+                <% users.each do |user| %>
+                  <p><%= link_to user.name, user %></p>
                 <% end %>
               <% end %>
             <% end %>

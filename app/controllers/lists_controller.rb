@@ -158,7 +158,6 @@ class ListsController < ApplicationController
       list = List.find(params[:id])
       list.archived = !list.archived || !list.archived = list.archived
       list.save
-
       redirect_to list_path(list)
   end
 end
