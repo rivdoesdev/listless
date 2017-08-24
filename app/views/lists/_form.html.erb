@@ -1,7 +1,9 @@
 <div class='list-form'>
   <div class="row">
     <div class="col s10 offset-s1">
-      <h4 class='title'><%= form_title %></h4>
+      <h4 class='title'>
+        <%= form_title %>
+      </h4>
 
     <% if list.errors.any? %>
         <% list.errors.full_messages.each do |msg| %>
@@ -19,7 +21,6 @@
           <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="On a scale from 1-5, how hard is this list going to be to complete?">?</a>
           <form action="#">
           <%= f.range_field(:difficulty, in: 1..5, class: 'range-field') %>
-        </form>
 
           <label for="list_energy">Energy Level </label>
           <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="On a scale from 1-5, how much energy is this list going to take?">?</a>
@@ -27,7 +28,7 @@
 
           <label for="due_date">Due Date </label>
           <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="If you need to get this list done by a certain date, we'll text you a reminder that morning.">?</a>
-          <%= f.datetime_field :due_date %>
+          <%= f.date_field :due_date %>
 
           <label for="reward">Reward </label>
           <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="You have the option to set a reward to motivate yourself.">?</a>
